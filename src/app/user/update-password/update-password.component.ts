@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { UserService } from '../services/user.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-update-password',

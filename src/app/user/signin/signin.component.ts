@@ -9,9 +9,9 @@ import { Router } from '@angular/router';
 })
 export class SigninComponent {
 
-  signForm! : FormGroup
+  signForm!: FormGroup
 
-  constructor(private router : Router, private formBuilder : FormBuilder) {}
+  constructor(private router: Router, private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
     this.initializeForm();
@@ -19,12 +19,12 @@ export class SigninComponent {
 
   initializeForm() {
     this.signForm = this.formBuilder.group({
-      email : new FormControl('', [ Validators.required, Validators.email ]),
-      password: new FormControl('', [ Validators.required, Validators.minLength(6) ])
+      email: new FormControl('', [Validators.required, Validators.email]),
+      password: new FormControl('', [Validators.required, Validators.minLength(6)])
     })
   }
 
-  getControl(name: any) : AbstractControl | null {
+  getControl(name: any): AbstractControl | null {
     return this.signForm.get(name);
   }
 
@@ -35,5 +35,5 @@ export class SigninComponent {
 
   login(data: any) {
     console.log(data);
-    }
+  }
 }

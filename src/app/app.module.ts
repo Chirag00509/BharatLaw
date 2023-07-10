@@ -5,15 +5,13 @@ import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { HttpClientModule } from '@angular/common/http';
-import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
-import { UpdatePasswordComponent } from './update-password/update-password.component';
+import { ForgotPasswordComponent } from './user/forgot-password/forgot-password.component';
+import { UpdatePasswordComponent } from './user/update-password/update-password.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    ForgotPasswordComponent,
-    UpdatePasswordComponent,
   ],
   imports: [
     BrowserModule,
