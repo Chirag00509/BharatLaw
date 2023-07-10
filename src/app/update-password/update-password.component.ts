@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { UserService } from '../services/user.service';
 
@@ -8,16 +8,28 @@ import { UserService } from '../services/user.service';
   templateUrl: './update-password.component.html',
   styleUrls: ['./update-password.component.css']
 })
-export class UpdatePasswordComponent {
+export class UpdatePasswordComponent implements OnInit {
 
   updateForm!: FormGroup
 
+  constructor(private route : ActivatedRoute, private formBuilder : FormBuilder, private userservice : UserService) {}
 
-  constructor(private route : ActivatedRoute, private userservice : UserService) {}
+  ngOnInit(): void {
+    this.initializeForm();
+  }
 
-  updatePassword(password: any) {
+  initializeForm() {
+    this.updateForm = this.formBuilder.group({
+      password : new FormControl('', [ Validators.required ]),
+    })
+  }
+
+  getControl(name: any) : AbstractControl | null {
+    return this.updateForm.get(name);
+  }
+
+  updatePassword(password: string) {
     let token = this.route.snapshot.paramMap.get("token");
-
     this.userservice.getupdatePassword(password, token).subscribe();
   }
 

@@ -26,7 +26,6 @@ export class UserService {
   }
 
   getupdatePassword(password: string, token: string | null): Observable<any> {
-    console.log(password);
 
     const headers = new HttpHeaders({
       'Content-Type': 'application/json'
