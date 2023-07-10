@@ -11,7 +11,7 @@
         <img src ="../../../assets/bharatlaw (1).png" width="100" height="100">
         </div>
         <div class="card">
-        <form [formGroup]="signForm" (ngSubmit)=" initializeForm()">
+        <form [formGroup]="signForm" (ngSubmit)=" login(signForm.value)">
           <h1>Welcome Back</h1>
           <div class="content">
             <div class="input-field">

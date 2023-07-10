@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-signin',
@@ -11,7 +12,7 @@ export class SigninComponent {
 
   signForm!: FormGroup
 
-  constructor(private router: Router, private formBuilder: FormBuilder) { }
+  constructor(private router: Router, private formBuilder: FormBuilder, private userService : UserService) { }
 
   ngOnInit(): void {
     this.initializeForm();
@@ -34,6 +35,14 @@ export class SigninComponent {
   }
 
   login(data: any) {
-    console.log(data);
+    this.userService.getUser().subscribe((users : any[]) => {
+      const user = users.find(u => u.email === data.email && u.password === data.password);
+      if(user) {
+
+      } else {
+        alert("Your email and password dose not match");
+      }
+    })
   }
+
 }
