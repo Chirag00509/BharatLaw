@@ -7,9 +7,12 @@
     </head>
     <body>
       <div class="login-form">
-
+        <div style="display: flex; justify-content: center; align-items: center; height: 20vh;">
+        <img src ="../../../assets/bharatlaw (1).png" width="100" height="100">
+        </div>
+        <div class="card">
         <form [formGroup]="signForm" (ngSubmit)=" initializeForm()">
-          <h1>Login</h1>
+          <h1>Welcome Back</h1>
           <div class="content">
             <div class="input-field">
               <input name="email" type="email" placeholder="Email" autocomplete="nope" formControlName="email" [ngClass]="{ error: getControl('email')?.errors && getControl('email')?.touched }">
@@ -22,10 +25,10 @@
             <a href="#" class="link">Forgot Your Password?</a>
           </div>
           <div class="action">
-            <button (click)="navigatePage()">Register</button>
-            <button [disabled]="signForm.invalid">Sign in</button>
+            <button [disabled]="signForm.invalid">Log in</button>
           </div>
         </form>
+        </div>
         </div>
     </body>
     </html>
