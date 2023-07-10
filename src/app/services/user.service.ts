@@ -17,12 +17,22 @@ export class UserService {
     return this.http.post<any[]>("https://localhost:7204/api/User", data)
   }
 
-  forgot(email: string, token: any): Observable<any> {
+  forgot(email: string): Observable<any> {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json'
     });
 
-    return this.http.post<any>(`https://localhost:7204/forgot?email=${email}&token=sopjmsd64981`, { headers: headers });
+    return this.http.post<any>(`https://localhost:7204/forgot?email=${email}`, { headers: headers });
+  }
+
+  getupdatePassword(password: string, token: string | null): Observable<any> {
+    console.log(password);
+
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
+
+    return this.http.post<any>(`https://localhost:7204/api/User/update-password?password=${password}&token=${token}`, { headers: headers });
   }
 
 

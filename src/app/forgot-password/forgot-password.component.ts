@@ -31,7 +31,10 @@ export class ForgotPasswordComponent implements OnInit {
   }
 
   forgot(email : string) {
-    this.userService.forgot(email, this.token).subscribe();
+
+
+
+    this.userService.forgot(email).subscribe();
   }
 
 }

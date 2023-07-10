@@ -9,7 +9,7 @@ const routes: Routes = [
     component : ForgotPasswordComponent
   },
   {
-    path : 'update-password',
+    path : 'update-password/:token',
     component : UpdatePasswordComponent
   }
 ];
