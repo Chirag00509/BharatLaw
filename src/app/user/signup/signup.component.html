@@ -1,59 +1,79 @@
-<div class="card m-3">
-  <h5 class="card-header">Register</h5>
-  <div class="card-body">
+<div class="background">
+  <div class="card">
+    <h2>Register</h2>
     <form [formGroup]="registerForm" (ngSubmit)="onSubmit(registerForm.value)">
-      <div class="form-row">
-        <div class="form-group col-5">
-          <label>First Name</label>
-          <input type="text" formControlName="firstName" class="form-control" />
-        </div>
-        <div class="form-group col-5">
-          <label>Last Name</label>
-          <input type="text" formControlName="lastName" class="form-control" />
-        </div>
+
+      <input type="text" placeholder="First Name" name="firstName" id="firstName" formControlName="firstName"
+        [ngClass]="{'error': getControl('firstName')?.errors && getControl('firstName')?.touched}">
+      <span style="color: red;" *ngIf="
+                registerForm.controls['firstName'].invalid &&
+                registerForm.controls['firstName'].touched
+              " class="text-danger">
+        First Name is required
+      </span>
+
+      <input type="text" placeholder="Last Name" name="lastName" id="lastName" formControlName="lastName"
+        [ngClass]="{'error': getControl('lastName')?.errors && getControl('lastName')?.touched}">
+
+      <span style="color: red;" *ngIf="
+                      registerForm.controls['lastName'].invalid &&
+                      registerForm.controls['lastName'].touched
+                    " class="text-danger">
+        Last Name is required
+      </span>
+
+      <input type="text" placeholder="Contact Details" name="contact" id="contact" formControlName="contact"
+        [ngClass]="{'error': getControl('contact')?.errors && getControl('contact')?.touched}">
+
+      <span style="color: red;" *ngIf="
+                    registerForm.controls['contact'].invalid &&
+                    registerForm.controls['contact'].touched
+                  " class="text-danger">
+        Contact Details is required
+      </span>
+
+      <input type="text" placeholder="Email" name="email" id="email" formControlName="email"
+        [ngClass]="{'error': getControl('email')?.errors && getControl('email')?.touched}">
+
+      <span style="color: red;" *ngIf="
+              registerForm.controls['email'].invalid &&
+              registerForm.controls['email'].touched
+            " class="text-danger">
+        Please enter a valid email address
+      </span>
+
+      <input type="text" placeholder="Organization" name="organization" id="organization" formControlName="organization"
+        [ngClass]="{'error': getControl('organization')?.errors && getControl('organization')?.touched}">
+      <span style="color: red;" *ngIf="
+                    registerForm.controls['organization'].invalid &&
+                    registerForm.controls['organization'].touched
+                  " class="text-danger">
+        Organization is required
+      </span>
+
+      <input type="text" placeholder="Password" name="password" id="password" formControlName="password"
+        [ngClass]="{'error': getControl('password')?.errors && getControl('password')?.touched}">
+
+      <span style="color: red;"
+        *ngIf="registerForm.get('password')?.errors?.['required'] && (registerForm.get('password')?.dirty || registerForm.get('password')?.touched)">
+        Password is required.
+      </span>
+
+      <input type="text" placeholder="Confirm Password" name="confirmPassword" id="confirmPassword"
+        formControlName="confirmPassword"
+        [ngClass]="{'error': getControl('confirmPassword')?.errors && getControl('confirmPassword')?.touched}">
+
+      <span style="color: red;" *ngIf="
+                        registerForm.controls['confirmPassword'].invalid &&
+                        registerForm.controls['confirmPassword'].touched" class="text-danger">
+        Confirm Password is required </span>
+
+      <button type="submit" [disabled]="registerForm.invalid">Sign Up</button>
+      <div class="signin-link">
+        Already have an account? <a routerLink="/user/signin"><b>Sign In</b></a>
       </div>
-      <div class="form-group">
-        <label>Contact Details</label>
-        <input type="text" formControlName="contact" class="form-control" />
-      </div>
-      <div class="form-group">
-        <label>Email</label>
-        <input type="text" formControlName="email" class="form-control" />
-      </div>
-      <div class="form-group">
-        <label>Organization</label>
-        <input
-          type="text"
-          formControlName="organization"
-          class="form-control"
-        />
-      </div>
-      <div class="form-row">
-        <div class="form-group col">
-          <label>Password</label>
-          <input
-            type="password"
-            formControlName="password"
-            class="form-control"
-          />
-        </div>
-        <div class="form-group col">
-          <label>Confirm Password</label>
-          <input
-            type="password"
-            formControlName="confirmPassword"
-            class="form-control"
-          />
-        </div>
-      </div>
-      <div class="text-center">
-        <button class="btn btn-primary mr-1" [disabled]="registerForm.invalid">
-          Register
-        </button>
-        <button class="btn btn-secondary" type="reset" (click)="onReset()">
-          Cancel
-        </button>
-      </div>
+
     </form>
+
   </div>
 </div>
