@@ -3,20 +3,14 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { SignupComponent } from './signup/signup.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { SignupComponent } from './user/signup/signup.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SigninComponent } from './user/signin/signin.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    SignupComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    ReactiveFormsModule
-  ],
+  declarations: [AppComponent, SignupComponent, SigninComponent],
+  imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule, FormsModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

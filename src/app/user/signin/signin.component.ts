@@ -1,14 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { FormGroup, FormBuilder, FormControl, Validators, AbstractControl } from '@angular/forms';
-
 
 @Component({
-  selector: 'app-signup',
-  templateUrl: './signup.component.html',
-  styleUrls: ['./signup.component.css']
+  selector: 'app-signin',
+  templateUrl: './signin.component.html',
+  styleUrls: ['./signin.component.css']
 })
-export class SignupComponent implements OnInit {
+export class SigninComponent {
+
   signForm! : FormGroup
 
   constructor(private router : Router, private formBuilder : FormBuilder) {}
@@ -35,8 +35,5 @@ export class SignupComponent implements OnInit {
 
   login(data: any) {
     console.log(data);
-
-    
     }
-  }
-
+}
