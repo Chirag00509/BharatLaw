@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  AbstractControl,
-  FormBuilder,
-  FormGroup,
-  Validators,
-} from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-signup',
@@ -14,7 +11,7 @@ import {
 export class SignupComponent implements OnInit {
   registerForm!: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(private formBuilder: FormBuilder, private userService : UserService, private router: Router) {}
 
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
@@ -33,12 +30,9 @@ export class SignupComponent implements OnInit {
   }
 
   onSubmit(data: any[]) {
-    // Handle form submission
-    if (this.registerForm.invalid) {
-      return;
-    }
+    this.userService.registerUser(data).subscribe();
 
-    // Form is valid, proceed with registration
+    this.router.navigateByUrl("/user/signin");
   }
 
   onReset() {
