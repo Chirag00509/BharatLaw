@@ -1,0 +1,15 @@
+<form [formGroup]="updateProfile" (ngSubmit)="updateForm(updateProfile.value)">
+  <label>First Name</label>
+  <input type="text" name="firstName" formControlName="firstName">
+  <br>
+  <label>Last Name</label>
+  <input type="text" name="lastName" formControlName="lastName">
+  <br>
+  <label>Contact Details</label>
+  <input type="number" name="contact" formControlName="contact">
+  <br>
+  <label>Organization</label>
+  <input type="text" name="organization" formControlName="organization">
+  <br>
+  <button type="submit" [disabled]="updateProfile.invalid">Update Profile</button>
+</form>
