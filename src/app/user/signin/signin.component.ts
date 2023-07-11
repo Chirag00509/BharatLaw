@@ -38,7 +38,8 @@ export class SigninComponent {
     this.userService.getUser().subscribe((users : any[]) => {
       const user = users.find(u => u.email === data.email && u.password === data.password);
       if(user) {
-
+        alert("You are successfully login");
+        this.router.navigateByUrl('/dashboard')
       } else {
         alert("Your email and password dose not match");
       }
