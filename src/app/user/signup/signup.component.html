@@ -1,6 +1,9 @@
 <div class="background">
   <div class="card">
-    <h2>Register</h2>
+    <div style="display: flex; justify-content: center; align-items: center;">
+      <img src="../../../assets/bharatlaw (1).png" width="80" height="80">
+      </div>
+    <h2>Create your account</h2>
     <form [formGroup]="registerForm" (ngSubmit)="onSubmit(registerForm.value)">
 
       <input type="text" placeholder="First Name" name="firstName" id="firstName" formControlName="firstName"
