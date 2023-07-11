@@ -32,7 +32,7 @@ const routes: Routes = [
     SigninComponent,
     SignupComponent,
     ForgotPasswordComponent,
-    UpdatePasswordComponent
+    UpdatePasswordComponent,
   ],
   imports: [
     CommonModule,

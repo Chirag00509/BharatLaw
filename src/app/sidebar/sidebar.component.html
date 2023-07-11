@@ -1,0 +1,23 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<div class="sidebar">
+    <button class="add-project"  (click)="openAddResearchModal()">+ New Research</button>
+    <ul class="project-list">
+        <li *ngFor="let researches of research">{{ researches }}</li>
+    </ul>
+  </div>
+  <div class="bg">
+    <img src="../../assets/large image.png"><br>
+    <div>
+        <div class="search-container">
+            <input type="text" class="search-input" placeholder="What is your Query" name="email" id="email" [(ngModel)]="searchQuery">
+            <i class="fa fa-search search-icon"></i>
+          </div>
+        <br> <select class ="options">
+            <option value="option1">Advanced Filter</option>
+            <option value="option2">Option 2</option>
+            <option value="option3">Option 3</option>
+            <option value="option3">Option 3</option>
+          </select>
+          <span class="arrow"></span>
+        </div>
+    </div><br>
