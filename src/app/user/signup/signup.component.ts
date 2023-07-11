@@ -30,6 +30,8 @@ export class SignupComponent implements OnInit {
   }
 
   onSubmit(data: any[]) {
+    console.log(data);
+
     this.userService.registerUser(data).subscribe();
 
     this.router.navigateByUrl("/user/signin");

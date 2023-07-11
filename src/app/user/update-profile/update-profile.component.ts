@@ -55,7 +55,8 @@ export class UpdateProfileComponent implements OnInit {
       data.email = user.email;
       data.password = user.password;
       data.actionToken = token;
-      console.log(user.id);
+      data.Id = user.id;
+
       this.userservice.updateProfile(user.id, data).subscribe();
     })
 
