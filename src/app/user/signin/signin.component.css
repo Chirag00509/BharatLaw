@@ -1,8 +1,15 @@
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
+}
+.card {
+  background-color: #FFFFFF;
+  padding: 20px;
+  border-radius: 10px;
+  border : 1px solid black
 }
 
 body {
@@ -17,12 +24,15 @@ body {
 }
 
 
+
+
 .login-form {
   background: #fff;
   width: 500px;
   margin: 65px auto;
   display: -webkit-box;
   display: flex;
+  
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
           flex-direction: column;
@@ -36,9 +46,8 @@ body {
 input {
   width: 300px;
   margin-bottom: 10px;
-  padding: 10px;
+  padding: 30px;
   border: none;
-  border-radius: 3px;
   background-color: #F2F2F2;
   font-size: 16px;
   color: #333333;
@@ -56,8 +65,8 @@ input {
   font-family: 'Rubik', sans-serif;
   width: 100%;
   padding: 10px 1px;
+  padding-left: 15px;
   border: 0;
-  border-bottom: 1px solid #747474;
   outline: none;
   -webkit-transition: all .2s;
   transition: all .2s;
@@ -93,10 +102,13 @@ input {
   display: flex;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-          flex-direction: row;
+          flex-direction: column;
+          
+      
 }
 .login-form .action button {
-  width: 100%;
+  width: 50%;
+  margin-left: 120px;
   border: none;
   padding: 18px;
   font-family: 'Rubik', sans-serif;
@@ -111,8 +123,10 @@ input {
   -webkit-transition: all .3s;
   transition: all .3s;
 }
-.login-form .action button:hover {
-  background: #d8d8d8;
+.signup-link {
+  margin-left: 120px;
 }
+
+
 
 
