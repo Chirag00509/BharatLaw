@@ -42,9 +42,13 @@ export class UserService {
     return this.http.post<any>(`https://localhost:7204/api/User/update-password?password=${password}&token=${token}`, { headers: headers });
   }
 
-  updateProfile(token: string | null, data:any): Observable<any> {
+  updateProfile(id: number, data: any): Observable<any> {
 
-    return this.http.put<any>(`https://localhost:7204/api/User/Update-profile?token=${token}`, data);
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
+
+    return this.http.put<any>(`https://localhost:7204/api/User/${id}`, data, { headers: headers });
   }
 
   getDetailsByToken(token: string | null): Observable<any> {

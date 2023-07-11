@@ -24,7 +24,7 @@ export class UpdateProfileComponent implements OnInit {
     this.updateProfile = this.formBuilder.group({
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
-      contact: ['', Validators.required],
+      contactDetails: ['', Validators.required],
       organization: ['', Validators.required],
     });
   }
@@ -43,7 +43,7 @@ export class UpdateProfileComponent implements OnInit {
       this.updateProfile.patchValue({
         firstName: this.producList.firstName,
         lastName: this.producList.lastName,
-        contact: this.producList.contactDetails,
+        contactDetails: this.producList.contactDetails,
         organization: this.producList.organization
       })
     })
@@ -51,8 +51,13 @@ export class UpdateProfileComponent implements OnInit {
 
   updateForm(data: any) {
     let token = localStorage.getItem('token')
-    this.userservice.getDetailsByToken(token)
-    this.userservice.updateProfile(token, data)
+    this.userservice.getDetailsByToken(token).subscribe((user) => {
+      data.email = user.email;
+      data.password = user.password;
+      data.actionToken = token;
+      console.log(user.id);
+      this.userservice.updateProfile(user.id, data).subscribe();
+    })
 
   }
 
