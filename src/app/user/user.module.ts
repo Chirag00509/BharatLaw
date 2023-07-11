@@ -7,6 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { UpdatePasswordComponent } from './update-password/update-password.component';
+import { UpdateProfileComponent } from './update-profile/update-profile.component';
 
 const routes: Routes = [
   {
@@ -24,6 +25,10 @@ const routes: Routes = [
   {
     path : 'update-password/:token',
     component : UpdatePasswordComponent
+  },
+  {
+    path : 'update-profile',
+    component : UpdateProfileComponent
   }
 ]
 
@@ -32,7 +37,8 @@ const routes: Routes = [
     SigninComponent,
     SignupComponent,
     ForgotPasswordComponent,
-    UpdatePasswordComponent
+    UpdatePasswordComponent,
+    UpdateProfileComponent
   ],
   imports: [
     CommonModule,

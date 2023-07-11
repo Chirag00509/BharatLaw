@@ -25,12 +25,12 @@
         Last Name is required
       </span>
 
-      <input type="text" placeholder="Contact Details" name="contact" id="contact" formControlName="contact"
-        [ngClass]="{'error': getControl('contact')?.errors && getControl('contact')?.touched}">
+      <input type="text" placeholder="Contact Details" name="contactDetails" id="contactDetails" formControlName="contactDetails"
+        [ngClass]="{'error': getControl('contactDetails')?.errors && getControl('contactDetails')?.touched}">
 
       <span style="color: red;" *ngIf="
-                    registerForm.controls['contact'].invalid &&
-                    registerForm.controls['contact'].touched
+                    registerForm.controls['contactDetails'].invalid &&
+                    registerForm.controls['contactDetails'].touched
                   " class="text-danger">
         Contact Details is required
       </span>
