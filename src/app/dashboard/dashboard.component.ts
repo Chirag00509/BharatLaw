@@ -26,4 +26,15 @@ export class DashboardComponent {
     // Redirect logic here
     window.location.href = link;
   }
+
+  showPopup = false;
+
+  openPopup() {
+    this.showPopup = true;
+  }
+
+  closePopup() {
+    this.showPopup = false;
+  }
+
 }

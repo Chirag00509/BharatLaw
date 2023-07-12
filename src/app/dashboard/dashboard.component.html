@@ -29,7 +29,7 @@
     <div class="card-container">
         <div class="card" style="height: 450px width=150px;">
             <div class="card-body">
-                <i class="fa-solid fa-plus fa-2xl" style="padding-top: 40%; margin-left: 40%;"></i>
+                <i class="fa-solid fa-plus fa-2xl" style="padding-top: 40%; margin-left: 40%;" (click)="openPopup()" ></i>
                 <h5 class="card-title" style="padding-top: 8px; margin-left: 28px;">New Query</h5>
                 <p> </p>
                 <p> </p>
@@ -46,4 +46,16 @@
             </div>
         </div>
     </div>
+</div>
+
+
+<div class="popup-overlay" *ngIf="showPopup">
+  <div class="popup-content">
+    <h2 style="margin: 15px 0 25px 0;">Research Name</h2>
+    <textarea name="" id="" cols="35" rows="7" style="padding-left: 6px; margin: 0 20px;" placeholder="Type hear.."></textarea>
+    <div style="display: flex; align-items: center; flex-direction: column;">
+      <button class="btn btn-success" style="width: 200px; margin-top: 15px;">Continue</button>
+      <button class="close" (click)="closePopup()" style="margin-top: 15px;">Close</button>
+    </div>
+  </div>
 </div>
