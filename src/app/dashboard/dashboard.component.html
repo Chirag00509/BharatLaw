@@ -6,9 +6,6 @@
       <div class="card-body">
         <i class="fa-solid fa-plus fa-2xl" style="padding-top: 40%; margin-left: 40%;" (click)="openPopup()"></i>
         <h5 class="card-title" style="padding-top: 8px; margin-left: 28px;">New Query</h5>
-        <p> </p>
-        <p> </p>
-
       </div>
     </div>
     <div *ngFor="let card of cards" class="card">
@@ -18,7 +15,8 @@
         <h5 class="card-title">{{ card.name }}</h5>
         <!-- <p class="card-date" style="color: gray; position: absolute; bottom: -5px; left: 7px; font-size: 13px;">{{ getCurrentDate() }}</p> -->
         <div style="display: flex; position: absolute; bottom: 0;">
-          <p class="card-date" style="color: gray; font-size: 13px; margin-bottom: 7px; margin-left: -7px;">{{ getCurrentDate() }}</p>
+          <p class="card-date" style="color: gray; font-size: 13px; margin-bottom: 7px; margin-left: -7px;">{{
+            getCurrentDate() }}</p>
           <a href="">
             <img src="../../../assets//arrow-up-right.svg" alt="" style="padding-left: 65px; padding-bottom: 5px;">
           </a>
@@ -33,8 +31,8 @@
   <div class="popup-content">
     <h2 style="margin: 15px 0 25px 0;">Research Name</h2>
     <form [formGroup]="createResearchName" (ngSubmit)="research(createResearchName.value)">
-      <textarea name="" id="" cols="35" rows="7" style="padding-left: 6px; margin: 0 20px;"
-      placeholder="Type hear.." name="research" formControlName="research"></textarea>
+      <textarea name="" id="" cols="35" rows="7" style="padding-left: 6px; margin: 0 20px;" placeholder="Type hear.."
+        name="research" formControlName="research"></textarea>
       <div style="display: flex; align-items: center; flex-direction: column;">
         <button class="btn btn-success" style="width: 200px; margin-top: 15px;">Continue</button>
         <button class="close" (click)="closePopup()" style="margin-top: 15px;">Close</button>

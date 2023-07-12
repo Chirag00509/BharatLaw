@@ -1,13 +1,13 @@
 <div class="sidebar">
   <ul class="project-list">
-    <button class="add-project">+ New Research</button>
+    <button class="add-project" (click)="openPopup()">+ New Research</button>
     <li *ngFor="let research of researches">
       <div class="research-item">
         <i class="fa-solid fa-folder"
           style="padding-left: 10px; color:goldenrod; size: 30px; font-size: 20px; margin-top: 2px;"></i>
         <div class="research-content">
-          <div class="research-title">{{ research.title }}</div>
-          <div class="creation-date">{{ research.creationDate }}</div>
+          <div class="research-title">{{ research.name }}</div>
+          <div class="creation-date">{{ getCurrentDate() }}</div>
         </div>
       </div>
     </li>
@@ -21,7 +21,8 @@
       </div>
       <h6 style="color: white; margin-left: 7px; margin-top: 8px;">Chirag Labha</h6>
       <a href="">
-        <i class="fa-solid fa-right-from-bracket" style="color: white; margin-left: 39px; font-size: 21px; margin-top: 8px;"></i>
+        <i class="fa-solid fa-right-from-bracket"
+          style="color: white; margin-left: 39px; font-size: 21px; margin-top: 8px;"></i>
       </a>
     </div>
   </div>
@@ -36,3 +37,5 @@
     </div>
   </div>
 </div>
+
+

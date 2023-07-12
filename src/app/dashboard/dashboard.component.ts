@@ -39,11 +39,6 @@ export class DashboardComponent implements OnInit {
     return currentDate.toDateString();
   }
 
-  // redirectToLink(link: string): void {
-  //   // Redirect logic here
-  //   window.location.href = link;
-  // }
-
   openPopup() {
     this.showPopup = true;
   }
