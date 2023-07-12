@@ -1,0 +1,38 @@
+<div class="sidebar">
+  <ul class="project-list">
+    <button class="add-project">+ New Research</button>
+    <li *ngFor="let research of researches">
+      <div class="research-item">
+        <i class="fa-solid fa-folder"
+          style="padding-left: 10px; color:goldenrod; size: 30px; font-size: 20px; margin-top: 2px;"></i>
+        <div class="research-content">
+          <div class="research-title">{{ research.title }}</div>
+          <div class="creation-date">{{ research.creationDate }}</div>
+        </div>
+      </div>
+    </li>
+  </ul>
+
+  <div class="details">
+    <span style="border: .5px solid gray; width: 90%; position: absolute; left: 10px;"></span>
+    <div class="contant-deatls">
+      <div class="rounded-circle">
+        <span style="position: absolute; left: 17px; bottom: 31px;">CL</span>
+      </div>
+      <h6 style="color: white; margin-left: 7px; margin-top: 8px;">Chirag Labha</h6>
+      <a href="">
+        <i class="fa-solid fa-right-from-bracket" style="color: white; margin-left: 39px; font-size: 21px; margin-top: 8px;"></i>
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="bg">
+  <img src="../../assets/large image.png"><br>
+  <div>
+    <div class="search-container">
+      <input type="text" class="search-input" placeholder="What is your Query" name="search" id="search" />
+      <i class="fa fa-search search-icon" style="position: absolute; top: 356px; right: 370px;"></i>
+    </div>
+  </div>
+</div>
