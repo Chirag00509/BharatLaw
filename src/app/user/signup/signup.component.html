@@ -1,6 +1,9 @@
 <div class="background">
-  <div class="card">
-    <h2>Register</h2>
+  <div class="card1">
+    <div style="display: flex; justify-content: center; align-items: center;">
+      <img src="../../../assets/bharatlaw (1).png" width="80" height="80">
+      </div>
+    <h2>Create your account</h2>
     <form [formGroup]="registerForm" (ngSubmit)="onSubmit(registerForm.value)">
 
       <input type="text" placeholder="First Name" name="firstName" id="firstName" formControlName="firstName"
@@ -22,12 +25,12 @@
         Last Name is required
       </span>
 
-      <input type="text" placeholder="Contact Details" name="contact" id="contact" formControlName="contact"
-        [ngClass]="{'error': getControl('contact')?.errors && getControl('contact')?.touched}">
+      <input type="text" placeholder="Contact Details" name="contactDetails" id="contactDetails" formControlName="contactDetails"
+        [ngClass]="{'error': getControl('contactDetails')?.errors && getControl('contactDetails')?.touched}">
 
       <span style="color: red;" *ngIf="
-                    registerForm.controls['contact'].invalid &&
-                    registerForm.controls['contact'].touched
+                    registerForm.controls['contactDetails'].invalid &&
+                    registerForm.controls['contactDetails'].touched
                   " class="text-danger">
         Contact Details is required
       </span>

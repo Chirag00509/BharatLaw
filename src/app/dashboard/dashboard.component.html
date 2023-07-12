@@ -1,29 +1,44 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
-  <div class="container-fluid">
-      <a class="navbar-brand" href="#">Navbar</a>
-      <div class="collapse navbar-collapse" id="navbarNavDropdown">
-          <ul class="navbar-nav">
-              <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="#">Home</a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="#">Features</a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="#">Pricing</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                aria-expanded="false">
-                Dropdown link
-              </a>
-              <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="#">Action</a></li>
-                      <li><a class="dropdown-item" href="#">Another action</a></li>
-                      <li><a class="dropdown-item" href="#">Something else here</a></li>
-                  </ul>
-              </li>
-          </ul>
+<app-header></app-header>
+
+<div class="dashboard">
+  <div class="card-container">
+    <div class="card">
+      <div class="card-body">
+        <i class="fa-solid fa-plus fa-2xl" style="padding-top: 40%; margin-left: 40%;" (click)="openPopup()"></i>
+        <h5 class="card-title" style="padding-top: 8px; margin-left: 28px;">New Query</h5>
+        <p> </p>
+        <p> </p>
+
       </div>
+    </div>
+    <div *ngFor="let card of cards" class="card">
+      <i class="fa-solid fa-folder"
+        style="padding-top: 20px; padding-left: 20px; color:goldenrod; size: 30px; font-size: 30px;"></i>
+      <div class="card-body">
+        <h5 class="card-title">{{ card.name }}</h5>
+        <!-- <p class="card-date" style="color: gray; position: absolute; bottom: -5px; left: 7px; font-size: 13px;">{{ getCurrentDate() }}</p> -->
+        <div style="display: flex; position: absolute; bottom: 0;">
+          <p class="card-date" style="color: gray; font-size: 13px; margin-bottom: 7px; margin-left: -7px;">{{ getCurrentDate() }}</p>
+          <a href="">
+            <img src="../../../assets//arrow-up-right.svg" alt="" style="padding-left: 65px; padding-bottom: 5px;">
+          </a>
+        </div>
+      </div>
+    </div>
   </div>
-</nav>
+</div>
+
+
+<div class="popup-overlay" *ngIf="showPopup">
+  <div class="popup-content">
+    <h2 style="margin: 15px 0 25px 0;">Research Name</h2>
+    <form [formGroup]="createResearchName" (ngSubmit)="research(createResearchName.value)">
+      <textarea name="" id="" cols="35" rows="7" style="padding-left: 6px; margin: 0 20px;"
+      placeholder="Type hear.." name="research" formControlName="research"></textarea>
+      <div style="display: flex; align-items: center; flex-direction: column;">
+        <button class="btn btn-success" style="width: 200px; margin-top: 15px;">Continue</button>
+        <button class="close" (click)="closePopup()" style="margin-top: 15px;">Close</button>
+      </div>
+    </form>
+  </div>
+</div>

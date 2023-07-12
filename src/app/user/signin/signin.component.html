@@ -1,34 +1,39 @@
-<!DOCTYPE html>
-    <html lang="en">
-    <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Document</title>
-    </head>
-    <body>
-      <div class="login-form">
-        <div style="display: flex; justify-content: center; align-items: center; height: 20vh;">
-        <img src ="../../../assets/bharatlaw (1).png" width="100" height="100">
-        </div>
-        <div class="card">
-        <form [formGroup]="signForm" (ngSubmit)=" login(signForm.value)">
-          <h1>Welcome Back</h1>
-          <div class="content">
-            <div class="input-field">
-              <input name="email" type="email" placeholder="Email" autocomplete="nope" formControlName="email" [ngClass]="{ error: getControl('email')?.errors && getControl('email')?.touched }">
-              <span *ngIf="getControl('email')?.errors && getControl('email')?.touched" style="color: red;">Email is required.</span>
-            </div>
-            <div class="input-field">
-              <input type="password" name="password" placeholder="Password" autocomplete="new-password" formControlName="password" [ngClass]="{ error: getControl('password')?.errors && getControl('password')?.touched }">
-              <span *ngIf="getControl('password')?.errors && getControl('password')?.touched" style="color:red;">Password is required.</span>
-            </div>
-            <a routerLink="/user/forgot-password" class="link">Forgot Your Password?</a>
+<div class="background">
+  <div class="login-form">
+    <div class="card1">
+      <div style="display: flex; justify-content: center; align-items: center; height: 20vh;">
+        <img src="../../../assets/bharatlaw (1).png" width="100" height="100">
+      </div>
+      <form [formGroup]="signForm" (ngSubmit)=" login(signForm.value)">
+        <h2>Welcome</h2>
+        <div class="content">
+          <div class="input-field">
+            <input name="email" type="email" placeholder="Email" autocomplete="nope" formControlName="email"
+              [ngClass]="{ error: getControl('email')?.errors && getControl('email')?.touched }" />
+              <div>
+                <span *ngIf="getControl('email')?.errors && getControl('email')?.touched" style="color: red;">Email is
+                  required.</span>
+              </div>
           </div>
-          <div class="action">
-            <button [disabled]="signForm.invalid">Log in</button>
+          <div class="input-field">
+            <input type="password" name="password" placeholder="Password" autocomplete="new-password"
+              formControlName="password"
+              [ngClass]="{ error: getControl('password')?.errors && getControl('password')?.touched }" />
+              <div>
+                <span *ngIf="getControl('password')?.errors && getControl('password')?.touched" style="color:red;">Password
+                  is required.</span>
+              </div>
           </div>
-        </form>
+          <a routerLink="/user/forgot-password" class="link">Forgot Your Password?</a>
         </div>
+        <div class="action">
+          <button [disabled]="signForm.invalid">Log in</button>
+          <br>
+          <div class="signup-link">
+            Don't have an account? <a routerLink="/user/signup"><b>Sign Up </b></a>
+          </div>
         </div>
-    </body>
-    </html>
+      </form>
+    </div>
+
+  </div>

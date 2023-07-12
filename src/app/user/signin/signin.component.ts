@@ -12,7 +12,7 @@ export class SigninComponent {
 
   signForm!: FormGroup
 
-  constructor(private router: Router, private formBuilder: FormBuilder, private userService : UserService) { }
+  constructor(private router: Router, private formBuilder: FormBuilder, private userService: UserService) { }
 
   ngOnInit(): void {
     this.initializeForm();
@@ -35,15 +35,19 @@ export class SigninComponent {
   }
 
   login(data: any) {
-    this.userService.getUser().subscribe((users : any[]) => {
-      const user = users.find(u => u.email === data.email && u.password === data.password);
-      if(user) {
+
+    this.userService.loginUser(data.email, data.password).subscribe((res: any) => {
+
+      if(res) {
         alert("You are successfully login");
         this.router.navigateByUrl('/dashboard')
-      } else {
-        alert("Your email and password dose not match");
+        localStorage.setItem("token", res.actionToken)
       }
+
+    },(error)=>{
+      alert("Invalid");
     })
+
   }
 
 }
