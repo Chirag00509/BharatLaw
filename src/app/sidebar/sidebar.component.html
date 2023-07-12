@@ -1,8 +1,18 @@
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 <div class="sidebar">
     <button class="add-project"  (click)="openAddResearchModal()">+ New Research</button>
     <ul class="project-list">
-        <li *ngFor="let researches of research">{{ researches }}</li>
+        <li *ngFor="let research of researches">
+          <div class="research-item">
+            <i class="fa-solid fa-folder"
+        style="padding-top: 1px; padding-left: 10px; color:goldenrod; size: 30px; font-size: 20px;"></i>
+            <div class="research-content">
+              <div class="research-title">{{ research.title }}</div>
+              <div class="creation-date">{{ research.creationDate }}</div>
+            </div>
+          </div>
+        </li>
+        
     </ul>
   </div>
   <div class="bg">
