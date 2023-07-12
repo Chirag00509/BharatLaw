@@ -1,61 +1,44 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
-    <div class="container-fluid">
-        <img src="../../assets/bharatlaw1.png" alt="Logo" class="d-inline-block align-text-top">
-        <div class="collapse navbar-collapse" style="padding-left: 900px;" id="navbarNavDropdown">
-            <ul class="navbar-nav">
-
-                <div class="rounded-circle">
-                    <span>CS</span>
-                </div>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                        data-mdb-toggle="dropdown" aria-expanded="false">
-                        Chintan
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#">Your Profile</a></li>
-                        <li><a class="dropdown-item" href="#">Change Password</a></li>
-                        <li><a class="dropdown-item" href="#">Logout</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
-
-
+<app-header></app-header>
 
 <div class="dashboard">
-    <div class="card-container">
-        <div class="card" style="height: 450px width=150px;">
-            <div class="card-body">
-                <i class="fa-solid fa-plus fa-2xl" style="padding-top: 40%; margin-left: 40%;" (click)="openPopup()" ></i>
-                <h5 class="card-title" style="padding-top: 8px; margin-left: 28px;">New Query</h5>
-                <p> </p>
-                <p> </p>
+  <div class="card-container">
+    <div class="card">
+      <div class="card-body">
+        <i class="fa-solid fa-plus fa-2xl" style="padding-top: 40%; margin-left: 40%;" (click)="openPopup()"></i>
+        <h5 class="card-title" style="padding-top: 8px; margin-left: 28px;">New Query</h5>
+        <p> </p>
+        <p> </p>
 
-            </div>
-        </div>
-        <div *ngFor="let card of cards" class="card" (click)="redirectToLink(card.link)">
-            <i class="fa-solid fa-folder"
-                style="padding-top: 20px; padding-left: 20px; color:goldenrod; size: 30px; font-size: 30px;"></i>
-            <div class="card-body">
-                <h5 class="card-title">{{ card.title }}</h5>
-                <p class="card-date" style="color: gray;">{{ getCurrentDate() }}</p>
-                <a [href]="card.link" class="btn btn-primary" style="margin-left: 20px;">Learn More</a>
-            </div>
-        </div>
+      </div>
     </div>
+    <div *ngFor="let card of cards" class="card">
+      <i class="fa-solid fa-folder"
+        style="padding-top: 20px; padding-left: 20px; color:goldenrod; size: 30px; font-size: 30px;"></i>
+      <div class="card-body">
+        <h5 class="card-title">{{ card.name }}</h5>
+        <!-- <p class="card-date" style="color: gray; position: absolute; bottom: -5px; left: 7px; font-size: 13px;">{{ getCurrentDate() }}</p> -->
+        <div style="display: flex; position: absolute; bottom: 0;">
+          <p class="card-date" style="color: gray; font-size: 13px; margin-bottom: 7px; margin-left: -7px;">{{ getCurrentDate() }}</p>
+          <a href="">
+            <img src="../../../assets//arrow-up-right.svg" alt="" style="padding-left: 65px; padding-bottom: 5px;">
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 
 <div class="popup-overlay" *ngIf="showPopup">
   <div class="popup-content">
     <h2 style="margin: 15px 0 25px 0;">Research Name</h2>
-    <textarea name="" id="" cols="35" rows="7" style="padding-left: 6px; margin: 0 20px;" placeholder="Type hear.."></textarea>
-    <div style="display: flex; align-items: center; flex-direction: column;">
-      <button class="btn btn-success" style="width: 200px; margin-top: 15px;">Continue</button>
-      <button class="close" (click)="closePopup()" style="margin-top: 15px;">Close</button>
-    </div>
+    <form [formGroup]="createResearchName" (ngSubmit)="research(createResearchName.value)">
+      <textarea name="" id="" cols="35" rows="7" style="padding-left: 6px; margin: 0 20px;"
+      placeholder="Type hear.." name="research" formControlName="research"></textarea>
+      <div style="display: flex; align-items: center; flex-direction: column;">
+        <button class="btn btn-success" style="width: 200px; margin-top: 15px;">Continue</button>
+        <button class="close" (click)="closePopup()" style="margin-top: 15px;">Close</button>
+      </div>
+    </form>
   </div>
 </div>

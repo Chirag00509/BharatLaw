@@ -8,6 +8,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { UpdatePasswordComponent } from './update-password/update-password.component';
 import { UpdateProfileComponent } from './update-profile/update-profile.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
 
 const routes: Routes = [
   {
@@ -29,6 +30,10 @@ const routes: Routes = [
   {
     path : 'update-profile',
     component : UpdateProfileComponent
+  },
+  {
+    path: 'change-password',
+    component : ChangePasswordComponent
   }
 ]
 
@@ -38,7 +43,8 @@ const routes: Routes = [
     SignupComponent,
     ForgotPasswordComponent,
     UpdatePasswordComponent,
-    UpdateProfileComponent
+    UpdateProfileComponent,
+    ChangePasswordComponent,
   ],
   imports: [
     CommonModule,

@@ -55,5 +55,15 @@ export class UserService {
     return this.http.get<any>(`https://localhost:7204/api/User/token?token=${token}`)
   }
 
+  newPassword(data: any, token: string | null ) : Observable<any> {
+
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
+
+    return this.http.post<any>(`https://localhost:7204/api/User/change-password?token=${token}&password=${data.password}&newPassword=${data.newPassword}`,  { headers: headers } );
+
+  }
+
 
 }
