@@ -19,10 +19,10 @@ const routes: Routes = [
     component : DashboardComponent
   },
   {
-    path : 'sidebar',
+    path : 'home',
     component : SidebarComponent
   }
-  
+
   ]
 
 @NgModule({
