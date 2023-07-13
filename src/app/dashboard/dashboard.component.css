@@ -22,11 +22,11 @@ span {
 /* Add custom styles as per your requirements */
 .dashboard {
   display: flex;
-  justify-content: center;
+  justify-content: left;
   align-items: flex-start;
   height: 100vh;
   padding-top: 20px;
-  margin-right: 600px;
+  margin-left: 20px;
 }
 
 .card-container {
