@@ -1,4 +1,4 @@
-.sidebar {
+.sidepanel {
   position: fixed;
   display: flex;
   justify-content: space-between;
@@ -9,20 +9,20 @@
   overflow: auto;
 }
 
-.project-list {
+.project-catalog {
   font-size: 1 px;
   list-style-type: none;
   padding: 20px;
   margin-bottom: 20px;
 }
 
-.research-content {
+.research-material {
   display: flex;
   flex-direction: column;
   margin-left: 10px;
 }
 
-.research-title {
+.research-topic {
   font-weight: bold;
   font-size: 14px;
   margin-left: 6px;
@@ -35,12 +35,12 @@
   margin-left: 8px;
 }
 
-.research-item {
+.research-entity {
   display: flex;
   justify-content: flex-start;
 }
 
-.add-project {
+.enroll-project {
   display: block;
   width: 100%;
   padding: 10px;
@@ -53,7 +53,7 @@
   border-radius: 10px;
 }
 
-.add-project:hover {
+.enroll-project:hover {
   background-color: rgba(255, 255, 255, 0.2);
 }
 
@@ -71,7 +71,7 @@
   font-size: 16px;
 }
 
-.search-input {
+.search-box {
   flex-grow: 1;
   border: none;
   outline: none;
@@ -110,18 +110,6 @@
   position: relative;
 }
 
-.dropdown select {
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  border: none;
-  background-color: transparent;
-  padding: 0;
-  margin: 0;
-  font-size: 14px;
-  color: #333;
-}
-
 .dropdown select option {
   font-size: 3px;
   color: #999;
@@ -137,7 +125,7 @@
   color: #999;
 }
 
-.project-list li {
+.project-catalog li {
   cursor: pointer;
   margin-bottom: 18px;
   background-color: whitesmoke;
@@ -145,7 +133,7 @@
   border-radius: 10px;
 }
 
-.details {
+.detail {
   display: flex;
   margin-top: 40px;
 }
@@ -154,17 +142,29 @@
   border-top: 1px solid white;
 }
 
-.rounded-circle {
+.round-circle {
   background-color: white;
   width: 35px;
   height: 35px;
   margin-left: 9px;
 }
 
-.contant-deatls {
+.content details {
   margin-top: 35px;
   display: flex;
   flex-direction: row;
   justify-content: center;
   margin-bottom: 25px;
+}
+
+.dropdown select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border: none;
+  background-color: transparent;
+  padding: 0;
+  margin: 0;
+  font-size: 14px;
+  color: #333;
 }
