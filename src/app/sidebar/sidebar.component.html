@@ -1,22 +1,22 @@
 <div class="sidebar">
-  <ul class="project-list">
-    <button class="add-project" (click)="openPopup()">+ New Research</button>
+  <ul class="project-lists">
+    <button class="add-projects" (click)="openPopup()">+ New Research</button>
     <li *ngFor="let research of researches">
-      <div class="research-item">
+      <div class="research-items">
         <i class="fa-solid fa-folder"
           style="padding-left: 10px; color:goldenrod; size: 30px; font-size: 20px; margin-top: 2px;"></i>
-        <div class="research-content">
-          <div class="research-title">{{ research.name }}</div>
+        <div class="researchs-content">
+          <div class="researchs-title">{{ research.name }}</div>
           <div class="creation-date">{{ getCurrentDate() }}</div>
         </div>
       </div>
     </li>
   </ul>
 
-  <div class="details">
+  <div class="detail">
     <span style="border: .5px solid gray; width: 90%; position: absolute; left: 10px;"></span>
-    <div class="contant-deatls">
-      <div class="rounded-circle">
+    <div class="contant-deals">
+      <div class="round-circle">
         <span style="position: absolute; left: 17px; bottom: 31px;">CL</span>
       </div>
       <h6 style="color: white; margin-left: 7px; margin-top: 8px;">Chirag Labha</h6>

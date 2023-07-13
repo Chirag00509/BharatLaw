@@ -1,28 +1,28 @@
 .sidebar {
+  height: 100vh;
+  width: 230px;
   position: fixed;
   display: flex;
   justify-content: space-between;
   flex-direction: column;
-  height: 100vh;
-  width: 230px;
   background-color: #0A004D;
   overflow: auto;
 }
 
-.project-list {
+.project-lists {
   font-size: 1 px;
   list-style-type: none;
   padding: 20px;
   margin-bottom: 20px;
 }
 
-.research-content {
+.researchs-content {
   display: flex;
   flex-direction: column;
   margin-left: 10px;
 }
 
-.research-title {
+.researchs-title {
   font-weight: bold;
   font-size: 14px;
   margin-left: 6px;
@@ -35,12 +35,12 @@
   margin-left: 8px;
 }
 
-.research-item {
+.research-items {
   display: flex;
   justify-content: flex-start;
 }
 
-.add-project {
+.add-projects {
   display: block;
   width: 100%;
   padding: 10px;
@@ -53,19 +53,10 @@
   border-radius: 10px;
 }
 
-.add-project:hover {
+.add-projects:hover {
   background-color: rgba(255, 255, 255, 0.2);
 }
 
-.bg {
-  background-color: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  margin-left: 250px;
-}
 
 .search-icon {
   font-size: 16px;
@@ -137,7 +128,7 @@
   color: #999;
 }
 
-.project-list li {
+.project-lists li {
   cursor: pointer;
   margin-bottom: 18px;
   background-color: whitesmoke;
@@ -145,26 +136,36 @@
   border-radius: 10px;
 }
 
-.details {
+.detail {
   display: flex;
   margin-top: 40px;
+}
+
+
+.contant-deals {
+  margin-top: 35px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-bottom: 25px;
 }
 
 .boder {
   border-top: 1px solid white;
 }
 
-.rounded-circle {
+.round-circle {
   background-color: white;
   width: 35px;
   height: 35px;
   margin-left: 9px;
 }
-
-.contant-deatls {
-  margin-top: 35px;
+.bg {
+  background-color: white;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
-  margin-bottom: 25px;
+  align-items: center;
+  height: 100vh;
+  margin-left: 250px;
 }
