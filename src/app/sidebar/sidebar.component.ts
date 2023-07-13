@@ -15,6 +15,7 @@ import { AppService } from '../services/app.service';
 export class SidebarComponent {
   researches: any[] = [];
   showPopup = false;
+  show=true;
   createResearchName!: FormGroup
   isResultsVisible: boolean = false;
   endPointUrl: string = 'http://52.204.3.226/';
@@ -128,6 +129,7 @@ export class SidebarComponent {
    * Get search results based on search query
    */
   getResultsBasedOnSearch(): void {
+    this.show = false;
     this.loader = true; //Enables loader on form submit
     const formData = this.queryForm.value;
     this.http.post(`${this.endPointUrl}api/` + `?page=${this.pageNumber}` + `&page_size=${this.pageSize}`, formData).subscribe(

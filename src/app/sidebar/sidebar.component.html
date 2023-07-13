@@ -42,7 +42,7 @@
   <div class="container">
     <div class="row  justify-content-center">
       <div class="col-sm-12 col-md-8 col-lg-8">
-        <div class="form-box form-box-width" style="display: flex; justify-content: center; align-items: center; height: 100vh; flex-direction: column; margin-left: 110px;">
+        <div class="form-box form-box-width" [style.height]="show ? '100vh' : ''" style="display: flex; justify-content: center; align-items: center; flex-direction: column; margin-left: 110px;">
           <div class="login-img">
             <!-- <img src="assets/images/logo.png" /> -->
             <img src="../../assets/large image.png" style="margin-bottom: 40px;">
@@ -78,7 +78,7 @@
                 </div>
                 <div class="btns" *ngIf="!advancedFilter">
                   <!-- <button type="reset" class="btn btn-link btn-submit" (click)="resetForm()">Reset</button> -->
-                  <button  [disabled]="!queryForm.valid" style="position: absolute; top: 335px; right: 385px; border: none; background: transparent;">
+                  <button  [disabled]="!queryForm.valid" [style.top]="show ? '335px' : '103px'" style="position: absolute; right: 385px; border: none; background: transparent;">
                     <i class="fa fa-search search-icon"></i>
                   </button>
                   <!-- <button type="submit" [disabled]="!queryForm.valid"
