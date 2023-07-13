@@ -1,16 +1,74 @@
+<div class="background">
+  <div class="card1">
+    <div style="display: flex; justify-content: center; align-items: center;">
+      <img src="../../../assets/bharatlaw (1).png" width="80" height="80">
+    </div>
 
-<form [formGroup]="updateProfile" (ngSubmit)="updateForm(updateProfile.value)">
-  <label>First Name</label>
-  <input type="text" name="firstName" formControlName="firstName">
-  <br>
-  <label>Last Name</label>
-  <input type="text" name="lastName" formControlName="lastName">
-  <br>
-  <label>Contact Details</label>
-  <input type="text" name="contactDetails" formControlName="contactDetails">
-  <br>
-  <label>Organization</label>
-  <input type="text" name="organization" formControlName="organization">
-  <br>
-  <button type="submit" [disabled]="updateProfile.invalid">Update Profile</button>
-</form>
+    <form [formGroup]="updateProfile" (ngSubmit)="updateForm(updateProfile.value)">
+      <h2>Update Profile</h2>
+
+      <input type="text" name="firstName" placeholder="First Name" formControlName="firstName" minlength="2"
+        [pattern]="firstNameRegex" required
+        [ngClass]="{ error: getControl('firstName')?.errors && getControl('firstName')?.touched }">
+
+      <div style="color: red;"
+        *ngIf="updateProfile.get('firstName')?.invalid && updateProfile.get('firstName')?.touched">
+
+        <div style="color: red;" *ngIf="updateProfile.get('firstName')?.hasError('required')">First Name is required.
+        </div>
+        <div style="color: red;" *ngIf="updateProfile.get('firstName')?.hasError('minlength')">At least 2 characters
+          required
+        </div>
+        <div style="color: red;" *ngIf="updateProfile.get('firstName')?.hasError('pattern')">First Character must be
+          Capital
+        </div>
+      </div>
+
+      <br>
+
+      <input type="text" name="lastName" placeholder="Last Name" formControlName="lastName" [pattern]="lastNameRegex"
+        required [ngClass]="{ error: getControl('lastName')?.errors && getControl('lastName')?.touched }">
+      <div style="color: red;" *ngIf="updateProfile.get('lastName')?.invalid && updateProfile.get('lastName')?.touched">
+        <div style="color: red;" *ngIf="updateProfile.get('lastName')?.hasError('required')">Last Name is required.
+        </div>
+        <div style="color: red;" *ngIf="updateProfile.get('firstName')?.hasError('pattern')">First Character must be
+          Capital
+        </div>
+      </div>
+      <br>
+
+      <input type="email" name="email" placeholder="Email" formControlName="email" email="emailRegex" required
+        [ngClass]="{ error: getControl('email')?.errors && getControl('email')?.touched }">
+
+      <div style="color: red;" *ngIf="updateProfile.get('email')?.invalid && updateProfile.get('email')?.touched">
+        <div style="color: red;" *ngIf="updateProfile.get('email')?.hasError('required')">Email is required.</div>
+        <div style="color: red;" *ngIf="updateProfile.get('email')?.hasError('email')">Invalid email address.</div>
+      </div>
+      <br>
+
+      <input type="text" name="phoneno" placeholder="Phone Number" formControlName="contactDetails"
+        pattern="phonenoRegex" required
+        [ngClass]="{ error: getControl('contactDetails')?.errors && getControl('contactDetails')?.touched }">
+      <div style="color: red;"
+        *ngIf="updateProfile.get('contactDetails')?.invalid && updateProfile.get('contactDetails')?.touched">
+        <div style="color: red;" *ngIf="updateProfile.get('contactDetails')?.hasError('required')">Phone Number is
+          required.</div>
+        <div style="color: red;" *ngIf="updateProfile.get('contactDetails')?.hasError('pattern')">Phone
+          Number must me Number
+        </div>
+      </div>
+      <br>
+
+      <input type="text" name="organization" placeholder="Organization" formControlName="organization" required
+        [ngClass]="{ error: getControl('organization')?.errors && getControl('organization')?.touched }">
+      <div style="color: red;"
+        *ngIf="updateProfile.get('organization')?.invalid && updateProfile.get('organization')?.touched">
+        <div style="color: red;" *ngIf="updateProfile.get('organization')?.hasError('required')">Organization is
+          required.</div>
+      </div>
+      <br>
+
+      <button type="submit" [disabled]="updateProfile.invalid">Update Profile</button>
+    </form>
+  </div>
+</div>
