@@ -1,6 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../services/user.service';
-import { AbstractControl, FormControl, FormGroup, Validators, FormBuilder } from '@angular/forms';
+import {
+  AbstractControl,
+  FormControl,
+  FormGroup,
+  Validators,
+  FormBuilder,
+} from '@angular/forms';
 import { ResearchService } from '../services/research.service';
 import { Router } from '@angular/router';
 
@@ -10,14 +16,18 @@ import { Router } from '@angular/router';
   styleUrls: ['./dashboard.component.css'],
 })
 export class DashboardComponent implements OnInit {
-
-  cards : any[] = [];
+  cards: any[] = [];
 
   showPopup = false;
 
-  createResearchName!: FormGroup
+  createResearchName!: FormGroup;
 
-  constructor(private userService : UserService, private router : Router, private formBuilder : FormBuilder, private researchService : ResearchService) {}
+  constructor(
+    private userService: UserService,
+    private router: Router,
+    private formBuilder: FormBuilder,
+    private researchService: ResearchService
+  ) {}
 
   ngOnInit(): void {
     this.initializeForm();
@@ -26,8 +36,8 @@ export class DashboardComponent implements OnInit {
 
   initializeForm() {
     this.createResearchName = this.formBuilder.group({
-      research: new FormControl('', [Validators.required, ]),
-    })
+      research: new FormControl('', [Validators.required]),
+    });
   }
 
   getControl(name: any): AbstractControl | null {
@@ -48,26 +58,23 @@ export class DashboardComponent implements OnInit {
   }
 
   research(data: any) {
-    let token = localStorage.getItem("token")
+    let token = localStorage.getItem('token');
     this.userService.getDetailsByToken(token).subscribe((res) => {
-
       const body = {
-        name : data. research,
-        dateCreated : new Date(),
-        lastModified : new Date(),
-        userId : res.id
-      }
+        name: data.research,
+        dateCreated: new Date(),
+        lastModified: new Date(),
+        userId: res.id,
+      };
       this.researchService.createResearch(body).subscribe();
       this.showPopup = false;
-      this.router.navigateByUrl("/dashboard");
-    })
+      this.router.navigateByUrl('/home');
+    });
   }
 
   getData() {
     this.researchService.getResearchDetails().subscribe((res) => {
       this.cards = res;
     });
-
   }
-
 }
