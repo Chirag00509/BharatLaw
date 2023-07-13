@@ -8,6 +8,8 @@ import { AppService } from '../services/app.service';
 })
 export class SearchResultComponent {
 
+  isPopupOpen = false;
+  relevant: string[] = [];
   currentPage: number = 1;
   changedPage: number = 0;
   pageSize: number = 10;
@@ -36,6 +38,15 @@ export class SearchResultComponent {
   }
 
   ngOnInit(): void {
+  }
+
+  openPopup(data: string[]) {
+    this.isPopupOpen = true;
+    console.log(data);
+    this.relevant = data;
+  }
+  close() {
+    this.isPopupOpen = false;
   }
 
   /**
