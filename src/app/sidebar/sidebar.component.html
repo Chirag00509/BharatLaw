@@ -42,22 +42,26 @@
   <div class="container">
     <div class="row  justify-content-center">
       <div class="col-sm-12 col-md-8 col-lg-8">
-        <div class="form-box form-box-width" [style.height]="show ? '100vh' : ''" style="display: flex; justify-content: center; align-items: center; flex-direction: column; margin-left: 110px;">
-          <div class="login-img">
+        <div class="form-box form-box-width" [style.height]="show ? '100vh' : '' "
+          style="display: flex; justify-content: center; align-items: center; flex-direction: column; margin-left: 110px;">
+          <div class="login-img" *ngIf="show">
             <!-- <img src="assets/images/logo.png" /> -->
             <img src="../../assets/large image.png" style="margin-bottom: 40px;">
           </div>
           <form [formGroup]="queryForm" (ngSubmit)="getResultsBasedOnSearch()">
-            <div class="form-group searchgroup" formArrayName="queries"
-              *ngFor="let query of queries.controls; let i=index; let last = last">
-              <input type="text" class="form-ctrl form-control" placeholder="Tell us about your query"
-                [formControlName]="i" style="width: 500px; height: 45px; background: whitesmoke; border: none; outline: none;">
-              <div *ngIf="queries.controls[i].invalid && (queries.controls[i].dirty || queries.controls[i].touched)">
-                <span class="text-danger mt-2 d-block" *ngIf="queries.controls[i].hasError('required')">
-                  Query is required!
-                </span>
+            <span *ngIf="show">
+              <div class="form-group searchgroup" formArrayName="queries"
+                *ngFor="let query of queries.controls; let i=index; let last = last">
+                <input type="text" class="form-ctrl form-control" placeholder="Tell us about your query"
+                  [formControlName]="i"
+                  style="width: 500px; height: 45px; background: whitesmoke; border: none; outline: none;">
+                <div *ngIf="queries.controls[i].invalid && (queries.controls[i].dirty || queries.controls[i].touched)">
+                  <span class="text-danger mt-2 d-block" *ngIf="queries.controls[i].hasError('required')">
+                    Query is required!
+                  </span>
+                </div>
               </div>
-            </div>
+            </span>
             <!-- <button type=" submit" class="btn-left btn btn-light"> -->
             <!-- <img src="assets/images/search.png" /> -->
             <!-- </button> -->
@@ -71,14 +75,16 @@
             <!-- </button> -->
             <div class="Advancedfilters">
               <div class="d-flex justify-content-between align-items-center">
-                <div>
-                  <h6 data-bs-toggle="collapse" (click)="enableFilter()" data-bs-target="#collapseAdvancedfilters" style="margin-top: 24px; margin-left: 180px;">
+                <div *ngIf="show">
+                  <h6 data-bs-toggle="collapse" (click)="enableFilter()" data-bs-target="#collapseAdvancedfilters"
+                    style="margin-top: 24px; margin-left: 180px;">
                     Advanced
                     filters <span class="fa fa-angle-down"></span></h6>
                 </div>
                 <div class="btns" *ngIf="!advancedFilter">
                   <!-- <button type="reset" class="btn btn-link btn-submit" (click)="resetForm()">Reset</button> -->
-                  <button  [disabled]="!queryForm.valid" [style.top]="show ? '335px' : '103px'" style="position: absolute; right: 385px; border: none; background: transparent;">
+                  <button [disabled]="!queryForm.valid" *ngIf="show"
+                    style="position: absolute; top: 335px; right: 385px; border: none; background: transparent;">
                     <i class="fa fa-search search-icon"></i>
                   </button>
                   <!-- <button type="submit" [disabled]="!queryForm.valid"
@@ -90,8 +96,8 @@
                 <div class="row" formGroupName="advancedFilters">
                   <div class="col-12 col-sm-6 col-md-6">
                     <div class="form-group">
-                      <ng-select class="form-control" [items]="courts" bindLabel="name" bindValue="name" type="text" formControlName="court"
-                        placeholder="Court">
+                      <ng-select class="form-control" [items]="courts" bindLabel="name" bindValue="name" type="text"
+                        formControlName="court" placeholder="Court">
                       </ng-select>
                     </div>
                   </div>
@@ -104,12 +110,12 @@
                     </div>
                   </div>
                   <!-- <div class="col-12 col-sm-6 col-md-6">
-                                        <div class="form-group">
-                                            <select class="form-ctrl form-control">
-                                                <option>Case Type</option>
-                                            </select>
-                                        </div>
-                                    </div> -->
+                      <div class="form-group">
+                          <select class="form-ctrl form-control">
+                              <option>Case Type</option>
+                          </select>
+                      </div>
+                  </div> -->
                   <div class="col-12 col-sm-6 col-md-6">
                     <div class="form-group">
                       <ng-select [items]="caseNumbersMetaData" bindLabel="name" bindValue="name" type="text"

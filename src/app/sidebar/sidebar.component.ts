@@ -13,9 +13,9 @@ import { AppService } from '../services/app.service';
   styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent {
+  show = true;
   researches: any[] = [];
   showPopup = false;
-  show=true;
   createResearchName!: FormGroup
   isResultsVisible: boolean = false;
   endPointUrl: string = 'http://52.204.3.226/';
