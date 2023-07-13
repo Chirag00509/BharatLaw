@@ -31,6 +31,14 @@ export class HeaderComponent implements OnInit {
     })
   }
 
+  logout() {
+    let token = localStorage.getItem('token');
+
+    this.userService.logout(token).subscribe((res) => {
+      this.router.navigateByUrl("/");
+    })
+  }
+
   yourProfile(){
     this.router.navigateByUrl("/user/update-profile");
   }

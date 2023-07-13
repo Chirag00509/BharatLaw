@@ -14,6 +14,11 @@ export class SidebarComponent {
 
   showPopup = false;
 
+  firstNameUser:any;
+  lastNameUser:any;
+  firstName:any;
+  lastName:any;
+
   createResearchName!: FormGroup
 
   constructor(private userService : UserService, private router : Router, private formBuilder : FormBuilder, private researchService : ResearchService) {}
@@ -21,6 +26,7 @@ export class SidebarComponent {
   ngOnInit(): void {
     this.initializeForm();
     this.getData();
+    this.getUserDetails();
   }
 
   initializeForm() {
@@ -31,11 +37,6 @@ export class SidebarComponent {
 
   getControl(name: any): AbstractControl | null {
     return this.createResearchName.get(name);
-  }
-
-  getCurrentDate(): string {
-    const currentDate = new Date();
-    return currentDate.toDateString();
   }
 
   openPopup() {
@@ -66,7 +67,25 @@ export class SidebarComponent {
     this.researchService.getResearchDetails().subscribe((res) => {
       this.researches = res;
     });
+  }
 
+  getUserDetails() {
+    let token = localStorage.getItem('token');
+
+    this.userService.getDetailsByToken(token).subscribe((res) => {
+      this.firstNameUser = res.firstName;
+      this.lastNameUser = res.lastName;
+      this.firstName = res.firstName.charAt(0);
+      this.lastName = res.lastName.charAt(0);
+    })
+  }
+
+  logout() {
+    let token = localStorage.getItem('token');
+
+    this.userService.logout(token).subscribe((res) => {
+      this.router.navigateByUrl("/");
+    })
   }
 
 }

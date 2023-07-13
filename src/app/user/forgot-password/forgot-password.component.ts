@@ -38,8 +38,12 @@ export class ForgotPasswordComponent implements OnInit {
   }
 
   forgot(email: string) {
-    this.userService.forgot(email).subscribe();
-    alert('Reset Password link will be sent to your email address');
-    this.router.navigateByUrl('/user/signin');
+    this.userService.forgot(email).subscribe((res) => {
+      alert('Reset Password link will be sent to your email address');
+      this.router.navigateByUrl('/user/signin');
+    }, (error) => {
+      alert("Your email id is not registred");
+    });
+
   }
 }

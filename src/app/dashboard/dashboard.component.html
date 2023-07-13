@@ -15,10 +15,9 @@
         <h5 class="card-title">{{ card.name }}</h5>
         <!-- <p class="card-date" style="color: gray; position: absolute; bottom: -5px; left: 7px; font-size: 13px;">{{ getCurrentDate() }}</p> -->
         <div style="display: flex; position: absolute; bottom: 0;">
-          <p class="card-date" style="color: gray; font-size: 13px; margin-bottom: 7px; margin-left: -7px;">{{
-            getCurrentDate() }}</p>
-          <a href="">
-            <img src="../../../assets//arrow-up-right.svg" alt="" style="padding-left: 65px; padding-bottom: 5px;">
+          <p class="card-date" style="color: gray; font-size: 13px; margin-bottom: 7px; margin-left: -7px;">{{ card.dateCreated | date }}</p>
+          <a routerLink="/home">
+            <img src="../../../assets//arrow-up-right.svg" alt="" style="padding-left: 85px; padding-bottom: 5px;">
           </a>
         </div>
       </div>
