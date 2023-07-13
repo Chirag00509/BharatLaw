@@ -9,6 +9,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { HeaderComponent } from './header/header.component';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { SearchResultComponent } from './search-result/search-result.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { NgSelectModule } from '@ng-select/ng-select';
     HomeComponent,
     DashboardComponent,
     SidebarComponent,
-    HeaderComponent
+    HeaderComponent,
+    SearchResultComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,254 @@
+<ng-container *ngIf="data.resp.length !== 0">
+    <div class="row">
+        <div class="col-sm-12 col-md-8 col-lg-9">
+            <ng-container *ngFor="let item of data.resp | keyvalue:returnZero; let i = index;">
+                <ng-container *ngIf="item.value">
+                    <div class="law-card" *ngFor="let item2 of item.value | keyvalue:returnZero">
+                        <ng-container *ngIf="item2.key !=='stats' && item2.key !=='common judgement among all facts'">
+                            <div class="law-card-header">
+                                <h4>{{item2.key}}</h4>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 col-sm-6 col-md-6">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h4>COURT</h4>
+                                            <ul class="list-point list-unstyled mb-0">
+                                                <li *ngIf="item2.value['judgement_info']['court']">
+                                                    {{item2.value['judgement_info']['court']}}</li>
+                                                <li *ngIf="!item2.value['judgement_info']['court']"> Not Available</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-6 col-md-6">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h4>JUDGMENT DATE</h4>
+                                            <ul class="list-point list-unstyled mb-0">
+                                                <li *ngIf="item2.value['judgement_info']['judgement_date']">
+                                                    {{item2.value['judgement_info']['judgement_date']}}</li>
+                                                <li *ngIf="!item2.value['judgement_info']['judgement_date']">
+                                                    Not Available</li>
+
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-6 col-md-6">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h4>CITES </h4>
+                                            <ul class="list-point list-unstyled mb-0">
+                                                <li>&shy; </li>
+
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-6 col-md-6">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h4>CITED</h4>
+                                            <ul class="list-point list-unstyled mb-0">
+                                                <li>&shy; </li>
+
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-body">
+                                    <h3>Relevancy</h3>
+                                    <ul class="list-point list-unstyled mb-0" *ngIf="item2.value['facts']">
+                                        <li *ngFor="let facts of item2.value['facts'] | keyvalue:returnZero">
+                                            {{facts.value}}</li>
+                                    </ul>
+                                    <p class="mb-0 mt-2" *ngIf="item2.value['facts'] == ''">Not Available</p>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <!-- Sections -->
+                                            <h3>Section</h3>
+                                            <ul class="list-point list-unstyled mb-0" *ngIf="item2.value['sections']">
+                                                <li
+                                                    *ngFor="let sections of item2.value['sections'] | keyvalue:returnZero">
+                                                    {{sections.value}}</li>
+                                            </ul>
+                                            <p class="mb-0 mt-2" *ngIf="item2.value['sections'] == ''">Not Available</p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <!-- Acts -->
+                                            <h3>Acts</h3>
+                                            <ul class="list-point list-unstyled mb-0" *ngIf="item2.value['acts']">
+                                                <li *ngFor="let acts of item2.value['acts'] | keyvalue:returnZero">
+                                                    {{acts.value}}</li>
+                                            </ul>
+                                            <p class="mb-0 mt-2" *ngIf="item2.value['acts'] == ''">Not Available</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <!-- Citation -->
+                                            <h3>Citation</h3>
+                                            <ul class="list-point list-unstyled mb-0" *ngIf="item2.value['citations']">
+                                                <li
+                                                    *ngFor="let citations of item2.value['citations'] | keyvalue:returnZero">
+                                                    {{citations.value}}</li>
+                                            </ul>
+                                            <p class="mb-0 mt-2" *ngIf="item2.value['citations'] == ''">Not Available
+                                            </p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <!-- Bench -->
+                                            <h3>Bench</h3>
+                                            <ul class="list-point list-unstyled mb-0"
+                                                *ngIf="item2.value['judgement_info']['bench']">
+                                                <li
+                                                    *ngFor="let bench of item2.value['judgement_info']['bench'] | keyvalue:returnZero">
+                                                    {{bench.value}}</li>
+                                            </ul>
+                                            <p class="mb-0 mt-2"
+                                                *ngIf="!item2.value['judgement_info']['bench'] || item2.value['judgement_info']['bench']['length'] === 0">
+                                                Not Available</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <!-- Case Number -->
+                                            <h3>Case Number</h3>
+                                            <ul class="list-point list-unstyled mb-0"
+                                                *ngIf="item2.value['judgement_info']['case_number']">
+                                                <li
+                                                    *ngFor="let case of item2.value['judgement_info']['case_number'] | keyvalue:returnZero">
+                                                    {{case.value}}</li>
+                                            </ul>
+                                            <p class="mb-0 mt-2"
+                                                *ngIf="!item2.value['judgement_info']['case_number'] || item2.value['judgement_info']['case_number']['length'] === 0">
+                                                Not Available
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion" id="accordionExample">
+                                <div class="accordion-item" *ngIf="item2.value['judgement_info']['procedure']">
+                                    <h2 class="accordion-header" id="headingOne">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#collapseOne" aria-expanded="true"
+                                            aria-controls="collapseOne">
+                                            Procedure
+                                        </button>
+                                    </h2>
+                                    <div id="collapseOne" class="accordion-collapse collapse show"
+                                        aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                            <ul class="list-point list-unstyled mb-0">
+                                                <li>
+                                                    {{item2.value['judgement_info']['procedure']}}
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingTwo">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseTwo"
+                                            aria-expanded="false" aria-controls="collapseTwo">
+                                            Evidence
+                                        </button>
+                                    </h2>
+                                    <div id="collapseTwo" class="accordion-collapse collapse"
+                                        aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                            <ul class="list-point list-unstyled mb-0">
+                                                <li
+                                                    *ngFor="let evidence of item2.value['evidence'] | keyvalue:returnZero">
+                                                    {{evidence.value}}
+                                                </li>
+                                                <li *ngIf="item2.value['evidence'] == ''">
+                                                    Not Available
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingThree">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseThree"
+                                            aria-expanded="false" aria-controls="collapseThree">
+                                            Verdict
+                                        </button>
+                                    </h2>
+                                    <div id="collapseThree" class="accordion-collapse collapse"
+                                        aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                            <ul class="list-point list-unstyled mb-0"
+                                                *ngIf="typeOf(item2.value['verdict']) ==='object'">
+                                                <li
+                                                    *ngFor="let verdict of item2.value['verdict'] | keyvalue:returnZero">
+                                                    {{verdict.value}}</li>
+                                            </ul>
+                                            <ul class="list-point list-unstyled mb-0"
+                                                *ngIf="typeOf(item2.value['verdict']) ==='string'">
+                                                <li>{{item2.value['verdict']}}</li>
+                                            </ul>
+                                            <ul class="list-point list-unstyled mb-0" *ngIf="!item2.value['verdict']">
+                                                <li>Not Available</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </ng-container>
+                    </div>
+                </ng-container>
+            </ng-container>
+        </div>
+        <div class="col-sm-12 col-md-4 col-lg-3">
+            <ng-container *ngFor="let stat of stats | keyvalue:returnZero">
+                <ng-container *ngIf="stat.value">
+                    <div class="law-rgtbar" *ngFor="let list of stat.value | keyvalue:returnZero">
+                        <h4>ENTERED FACT</h4>
+                        <ul class="list-point list-unstyled mb-0">
+                            <li>{{list.key}}</li>
+                        </ul>
+                    </div>
+                </ng-container>
+            </ng-container>
+            <div class="law-rgtbar">
+                <h4>Relevant Judgement</h4>
+                <ul class="list-group policy-cate list-group-numbered">
+                    <ng-container *ngFor="let judgment of common_judgements | keyvalue:returnZero">
+                        <ng-container *ngIf="judgment.value">
+                            <li *ngFor="let facts of judgment.value | keyvalue:returnZero" class="list-group-item">
+                                {{facts.value}}</li>
+                        </ng-container>
+                    </ng-container>
+                </ul>
+                <p class="output-tag" *ngIf="!common_judgements || common_judgements.length === 0">Not Available</p>
+            </div>
+            <div class="law-rgtbar">
+                <h4>Statistics</h4>
+                <ul class="list-point list-unstyled mb-0">
+                    <li>Win 60%</li>
+                    <li>Loss 20%</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</ng-container>
+
+<div class="card" *ngIf="data.resp.length === 0">
+    <div class="card-body">
+        <div class="no-results">
+            <h2 class="text-center mb-4"><i class="fa fa-frown-o" aria-hidden="true"></i> No Results Found</h2>
+        </div>
+    </div>
+</div>

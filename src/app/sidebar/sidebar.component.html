@@ -90,7 +90,7 @@
                 <div class="row" formGroupName="advancedFilters">
                   <div class="col-12 col-sm-6 col-md-6">
                     <div class="form-group">
-                      <ng-select [items]="courts" bindLabel="name" bindValue="name" type="text" formControlName="court"
+                      <ng-select class="form-control" [items]="courts" bindLabel="name" bindValue="name" type="text" formControlName="court"
                         placeholder="Court">
                       </ng-select>
                     </div>
@@ -192,7 +192,7 @@
       </div>
     </div>
     <ng-container *ngIf="isResultsVisible">
-      <!-- <app-search-result></app-search-result> -->
+      <app-search-result></app-search-result>
     </ng-container>
   </div>
 </section>
