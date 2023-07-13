@@ -38,4 +38,16 @@
   </div>
 </div>
 
-
+<div class="popup-overlay" *ngIf="showPopup">
+  <div class="popup-content">
+    <h2>Research Name</h2>
+    <form [formGroup]="createResearchName" (ngSubmit)="research(createResearchName.value)">
+      <textarea name="" id="" cols="35" rows="7" placeholder="Type hear.." name="research"
+        formControlName="research"></textarea>
+      <div style="display: flex; align-items: center; flex-direction: column;">
+        <button class="btn btn-success"style="width: 200px; margin-top: 20px;">Continue</button>
+        <button class="close" (click)="closePopup()"style="margin-top: 20px;">Close</button>
+      </div>
+    </form>
+  </div>
+</div>
