@@ -68,6 +68,7 @@ export class UpdateProfileComponent implements OnInit {
       data.Id = user.id;
 
       this.userservice.updateProfile(user.id, data).subscribe();
+      alert('Successfully Updated');
     });
   }
 }

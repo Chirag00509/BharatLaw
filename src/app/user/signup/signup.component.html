@@ -2,7 +2,7 @@
   <div class="card1">
     <div style="display: flex; justify-content: center; align-items: center;">
       <img src="../../../assets/bharatlaw (1).png" width="80" height="80">
-      </div>
+    </div>
     <h2>Create your account</h2>
     <form [formGroup]="registerForm" (ngSubmit)="onSubmit(registerForm.value)">
 
@@ -25,7 +25,8 @@
         Last Name is required
       </span>
 
-      <input type="text" placeholder="Contact Details" name="contactDetails" id="contactDetails" formControlName="contactDetails"
+      <input type="text" placeholder="Phone Number" name="contactDetails" id="contactDetails"
+        formControlName="contactDetails"
         [ngClass]="{'error': getControl('contactDetails')?.errors && getControl('contactDetails')?.touched}">
 
       <span style="color: red;" *ngIf="
