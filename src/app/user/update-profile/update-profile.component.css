@@ -9,7 +9,7 @@
 }
 
 h2 {
-    
+
     text-align: center;
     padding-bottom: 30px;
 }
@@ -65,4 +65,3 @@ button[type="submit"]:disabled {
 .error {
     border: 1px solid red;
 }
-
