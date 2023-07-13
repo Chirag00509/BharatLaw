@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {
+  AbstractControl,
+  FormBuilder,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 
@@ -11,7 +16,11 @@ import { UserService } from 'src/app/services/user.service';
 export class SignupComponent implements OnInit {
   registerForm!: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private userService : UserService, private router: Router) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private userService: UserService,
+    private router: Router
+  ) {}
 
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
@@ -30,11 +39,10 @@ export class SignupComponent implements OnInit {
   }
 
   onSubmit(data: any[]) {
-    console.log(data);
-
     this.userService.registerUser(data).subscribe();
+    alert('You are successfully Registered');
 
-    this.router.navigateByUrl("/user/signin");
+    this.router.navigateByUrl('/user/signin');
   }
 
   onReset() {
