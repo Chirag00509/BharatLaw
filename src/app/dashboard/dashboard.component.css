@@ -31,7 +31,9 @@ span {
 
 .card-container {
   display: flex;
+  font-family: Arial;
   flex-direction: row;
+  flex-wrap: wrap;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   grid-gap: 23px;
   justify-content: left;
@@ -43,7 +45,7 @@ span {
   border: 1px solid #ccc;
   border-radius: 4px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  background-color: lightgray;
+  background-color: rgb(240, 240, 240);
 }
 
 
@@ -62,13 +64,14 @@ span {
 
 .card-title {
   font-size: 20px;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
+  
 }
 
 .card-text {
   font-size: 16px;
   color: #555;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 
