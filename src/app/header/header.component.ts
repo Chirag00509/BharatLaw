@@ -36,6 +36,7 @@ export class HeaderComponent implements OnInit {
 
     this.userService.logout(token).subscribe((res) => {
       this.router.navigateByUrl("/");
+      localStorage.clear();
     })
   }
 

@@ -39,8 +39,8 @@
 </div>
 
 <div class="popup-overlay" *ngIf="showPopup">
-  <div class="popup-content">
-    <h2>Research Name</h2>
+  <div class="popup-content" style="padding: 30px;">
+    <h2 style="margin-bottom: 15px;">Research Name</h2>
     <form [formGroup]="createResearchName" (ngSubmit)="research(createResearchName.value)">
       <textarea name="" id="" cols="35" rows="7" placeholder="Type hear.." name="research"
         formControlName="research"></textarea>

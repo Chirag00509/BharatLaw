@@ -59,7 +59,7 @@ export class SidebarComponent {
       }
       this.researchService.createResearch(body).subscribe();
       this.showPopup = false;
-      this.router.navigateByUrl("/home");
+      window.location.reload();
     })
   }
 
@@ -84,6 +84,7 @@ export class SidebarComponent {
     let token = localStorage.getItem('token');
 
     this.userService.logout(token).subscribe((res) => {
+      localStorage.clear();
       this.router.navigateByUrl("/");
     })
   }
