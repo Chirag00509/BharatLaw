@@ -65,5 +65,10 @@ export class UserService {
 
   }
 
+  logout(token: string | null) : Observable<any> {
+
+    return this.http.get<any>(`https://localhost:7204/api/User/logut?token=${token}`);
+  }
+
 
 }

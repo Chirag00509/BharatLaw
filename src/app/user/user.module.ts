@@ -9,6 +9,7 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 import { UpdatePasswordComponent } from './update-password/update-password.component';
 import { UpdateProfileComponent } from './update-profile/update-profile.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
+import { HeaderComponent } from './header/header.component';
 
 const routes: Routes = [
   {
@@ -45,6 +46,7 @@ const routes: Routes = [
     UpdatePasswordComponent,
     UpdateProfileComponent,
     ChangePasswordComponent,
+    HeaderComponent
   ],
   imports: [
     CommonModule,

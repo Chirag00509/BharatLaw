@@ -17,9 +17,9 @@ import { SearchResultComponent } from './search-result/search-result.component';
     AppComponent,
     HomeComponent,
     DashboardComponent,
-    SidebarComponent,
     HeaderComponent,
     SearchResultComponent
+
   ],
   imports: [
     BrowserModule,
