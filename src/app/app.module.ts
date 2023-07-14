@@ -7,12 +7,16 @@ import { HomeComponent } from './home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { NgSelectModule } from '@ng-select/ng-select';
+import { SearchResultComponent } from './search-result/search-result.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     DashboardComponent,
+    SearchResultComponent,
     SidebarComponent,
   ],
   imports: [
@@ -21,6 +25,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
+    NgSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent],
