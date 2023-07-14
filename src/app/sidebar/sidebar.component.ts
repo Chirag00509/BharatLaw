@@ -450,5 +450,9 @@ export class SidebarComponent {
     })
   }
 
+  // clearForm() {
+  //   this.createResearchName.reset();
+  // }
+
 }
 

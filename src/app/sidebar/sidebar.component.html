@@ -16,8 +16,8 @@
   <div class="details">
     <span style="border: .5px solid gray; width: 90%; position: absolute; left: 10px;"></span>
     <div class="contant-deatls">
-      <div class="rounded-circle">
-        <span style="position: absolute; left: 17px; bottom: 31px;">CL</span>
+      <div class="rounded-circle" style="position: relative;">
+        <span style="position: absolute; left: 8px; bottom: 6px; font-weight: 500;">CL</span>
       </div>
       <h6 style="color: white; margin-left: 7px; margin-top: 8px;">Chirag Labha</h6>
       <a href="">
@@ -53,10 +53,17 @@
             </span>
 
 
-            <div class="login-img" *ngIf="!show">
+            <div class="login-img" *ngIf="!show" style="display: flex;">
               <img src="../../assets/large image.png"
-                style="margin-bottom: 20px; padding-right: 200px; margin-top: 10px;">
-            </div>
+                style="margin-bottom: 20px; margin-top: 10px;">
+                <div (click)="showAFilter()">
+                  <h6 data-bs-toggle="collapse" (click)="enableFilter()" data-bs-target="#collapseAdvancedfilters"
+                  style="margin-top: 24px; margin-left: 236px;">
+                  Advanced
+                  filters <span class="fa fa-angle-down"></span></h6>
+                </div>
+                <!-- <button (click)="clearForm()" style="margin-top: 22px; margin-left: 35px;" >Clear</button> -->
+              </div>
             <span *ngIf="!show">
               <div class="form-group searchgroup" formArrayName="queries"
                 *ngFor="let query of queries.controls; let i=index; let last = last"
@@ -77,21 +84,6 @@
               </div>
             </span>
 
-
-
-
-
-            <!-- <button type=" submit" class="btn-left btn btn-light"> -->
-            <!-- <img src="assets/images/search.png" /> -->
-            <!-- </button> -->
-            <!-- (ngModelChange)="getDefaultMetadataList()" -->
-            <!-- <button type="submit" *ngIf="queries.controls.length > 1" (click)="removeQueries(i)"
-                [ngClass]="queries.controls.length > 1?'btn-plus':'btn-closs'" class="btn btn-light"> -->
-            <!-- <img src="assets/images/close.png" /> -->
-            <!-- </button> -->
-            <!-- <button type="submit" *ngIf="last" (click)="addQueries()" class="btn-plus btn btn-light"> -->
-            <!-- <img src="assets/images/plus.png" /> -->
-            <!-- </button> -->
             <div class="Advancedfilters">
               <div class="d-flex justify-content-between align-items-center">
                 <div (click)="showAFilter()" *ngIf="show">
