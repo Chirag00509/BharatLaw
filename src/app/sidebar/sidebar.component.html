@@ -7,7 +7,7 @@
           style="padding-left: 10px; color:goldenrod; size: 30px; font-size: 20px; margin-top: 2px;"></i>
         <div class="research-content">
           <div class="research-title">{{ research.name }}</div>
-          <div class="creation-date">{{ getCurrentDate() }}</div>
+          <div class="creation-date">{{ research.dateCreated | date }}</div>
         </div>
       </div>
     </li>

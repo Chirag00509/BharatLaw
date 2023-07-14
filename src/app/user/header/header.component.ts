@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../services/user.service';
+import { UserService } from '../../services/user.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -28,6 +28,15 @@ export class HeaderComponent implements OnInit {
       this.user = res.firstName;
       this.firstName = res.firstName.charAt(0);
       this.lastName = res.lastName.charAt(0);
+    })
+  }
+
+  logout() {
+    let token = localStorage.getItem('token');
+
+    this.userService.logout(token).subscribe((res) => {
+      this.router.navigateByUrl("/");
+      localStorage.clear();
     })
   }
 

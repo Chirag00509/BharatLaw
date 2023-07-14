@@ -17,6 +17,10 @@ export class SidebarComponent {
   showAdvanceFilter = false;
   researches: any[] = [];
   showPopup = false;
+  firstNameUser:any;
+  lastNameUser:any;
+  firstName:any;
+  lastName:any;
   createResearchName!: FormGroup
   isResultsVisible: boolean = false;
   endPointUrl: string = 'http://52.204.3.226/';
@@ -67,6 +71,7 @@ export class SidebarComponent {
     while (startYear <= currentYear) {
       this.yearsList.push(startYear++);
     }
+    this.getUserDetails();
   }
 
 
@@ -83,11 +88,6 @@ export class SidebarComponent {
 
   getControl(name: any): AbstractControl | null {
     return this.createResearchName.get(name);
-  }
-
-  getCurrentDate(): string {
-    const currentDate = new Date();
-    return currentDate.toDateString();
   }
 
   openPopup() {
@@ -110,7 +110,7 @@ export class SidebarComponent {
       }
       this.researchService.createResearch(body).subscribe();
       this.showPopup = false;
-      this.router.navigateByUrl("/home");
+      window.location.reload();
     })
   }
 
@@ -119,6 +119,7 @@ export class SidebarComponent {
       this.researches = res;
     });
   }
+
 
   get queries() {
     return this.queryForm.get('queries') as FormArray;
@@ -427,6 +428,26 @@ export class SidebarComponent {
     this.citationsMetaData = [];
     this.respondentMetaData = [];
     this.petitionerMetaData = [];
+  }
+
+  getUserDetails() {
+    let token = localStorage.getItem('token');
+
+    this.userService.getDetailsByToken(token).subscribe((res) => {
+      this.firstNameUser = res.firstName;
+      this.lastNameUser = res.lastName;
+      this.firstName = res.firstName.charAt(0);
+      this.lastName = res.lastName.charAt(0);
+    })
+  }
+
+  logout() {
+    let token = localStorage.getItem('token');
+
+    this.userService.logout(token).subscribe((res) => {
+      localStorage.clear();
+      this.router.navigateByUrl("/");
+    })
   }
 
 }
