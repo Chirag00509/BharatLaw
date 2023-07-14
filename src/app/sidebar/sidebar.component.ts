@@ -14,6 +14,7 @@ import { AppService } from '../services/app.service';
 })
 export class SidebarComponent {
   show = true;
+  showAdvanceFilter = false;
   researches: any[] = [];
   showPopup = false;
   createResearchName!: FormGroup
@@ -68,10 +69,16 @@ export class SidebarComponent {
     }
   }
 
+
+
   initializeForm() {
     this.createResearchName = this.formBuilder.group({
       research: new FormControl('', [Validators.required, ]),
     })
+  }
+
+  showAFilter() {
+    this.showAdvanceFilter = true;
   }
 
   getControl(name: any): AbstractControl | null {
@@ -130,6 +137,7 @@ export class SidebarComponent {
    */
   getResultsBasedOnSearch(): void {
     this.show = false;
+    this.showAdvanceFilter = false
     this.loader = true; //Enables loader on form submit
     const formData = this.queryForm.value;
     this.http.post(`${this.endPointUrl}api/` + `?page=${this.pageNumber}` + `&page_size=${this.pageSize}`, formData).subscribe(
@@ -152,6 +160,10 @@ export class SidebarComponent {
     window.location.reload();
   }
 
+  closeAdvancefilter() {
+    this.showAdvanceFilter = false;
+  }
+
   enableFilter() {
     this.advancedFilter = !this.advancedFilter;
   }
@@ -162,6 +174,7 @@ export class SidebarComponent {
    */
   onPageChange(page: number): void {
     this.loader = true;
+    // this.showAdvanceFilter = false
     this.pageNumber = page;
     this.getResultsBasedOnSearch();
     window.scroll({
