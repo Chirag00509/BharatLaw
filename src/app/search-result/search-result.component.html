@@ -1,17 +1,18 @@
 <ng-container *ngIf="data.resp.length !== 0">
   <div class="row" style="margin-left: 132px;">
     <div class="col-sm-12 col-md-8 col-lg-9">
+
       <ng-container *ngFor="let item of data.resp | keyvalue:returnZero; let i = index;">
         <ng-container *ngIf="item.value">
           <div class="law-card" *ngFor="let item2 of item.value | keyvalue:returnZero">
             <ng-container *ngIf="item2.key !=='stats' && item2.key !=='common judgement among all facts'">
-              <div class="law-card-header" (click)="openPopup(item2.value['facts'])" >
+              <div class="law-card-header" (click)="openPopup(item2.value['facts'])">
                 <h4>{{item2.key}}</h4>
               </div>
               <div class="popup-overlay" *ngIf="isPopupOpen">
                 <div class="popup-content">
                   <h2 style="margin: 15px 0 25px 0;">Relevant</h2>
-                  <button (click)="close()" >Close</button>
+                  <button (click)="close()">Close</button>
                   <ul *ngFor="let item of relevant">
                     <li>{{item}}</li>
                   </ul>
@@ -22,6 +23,7 @@
         </ng-container>
       </ng-container>
     </div>
+
     <div class="col-sm-12 col-md-4 col-lg-3" style="margin: -155px -50px 0 50px;">
       <ng-container *ngFor="let stat of stats | keyvalue:returnZero">
         <ng-container *ngIf="stat.value">

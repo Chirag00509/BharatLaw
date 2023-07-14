@@ -62,6 +62,36 @@
                 </div>
               </div>
             </span>
+
+
+            <div class="login-img" *ngIf="!show">
+              <img src="../../assets/large image.png"
+                style="margin-bottom: 20px; padding-right: 200px; margin-top: 10px;">
+            </div>
+            <span *ngIf="!show">
+              <div class="form-group searchgroup" formArrayName="queries"
+                *ngFor="let query of queries.controls; let i=index; let last = last"
+                style="margin-bottom: 20px; margin-right: 194px;">
+                <div style="display: flex;">
+                  <input type="text" class="searchDetails" placeholder="Tell us about your query" [formControlName]="i"
+                    style="width: 650px; height: 45px; padding-left: 10px; background: whitesmoke; border: none; outline: none;">
+                  <button [disabled]="!queryForm.valid"
+                    style="background: #0A004D; color: white; width: 44px; height: 44px;">
+                    <i class="fa fa-search search-icon"></i>
+                  </button>
+                </div>
+                <div *ngIf="queries.controls[i].invalid && (queries.controls[i].dirty || queries.controls[i].touched)">
+                  <span class="text-danger mt-2 d-block" *ngIf="queries.controls[i].hasError('required')">
+                    Query is required!
+                  </span>
+                </div>
+              </div>
+            </span>
+
+
+
+
+
             <!-- <button type=" submit" class="btn-left btn btn-light"> -->
             <!-- <img src="assets/images/search.png" /> -->
             <!-- </button> -->

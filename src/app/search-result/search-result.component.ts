@@ -1,13 +1,22 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { AppService } from '../services/app.service';
+import {
+  AbstractControl,
+  FormArray,
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 
 @Component({
   selector: 'app-search-result',
   templateUrl: './search-result.component.html',
-  styleUrls: ['./search-result.component.css']
+  styleUrls: ['./search-result.component.css'],
 })
 export class SearchResultComponent {
-
+  show = true;
+  researches: any[] = [];
   isPopupOpen = false;
   relevant: string[] = [];
   currentPage: number = 1;
@@ -19,10 +28,16 @@ export class SearchResultComponent {
   stats: any = [];
   common_judgements: any = [];
   objectKeys = Object.keys;
+  queryForm!: FormGroup;
+  courts: any = [{ name: 'Supreme Court of India' }, { name: 'High Court' }];
 
-  constructor(private service: AppService) {
+  constructor(
+    private service: AppService,
+    private formBuilder: FormBuilder,
+    private _FB: FormBuilder
+  ) {
     this.data = [];
-    this.service.currentResults.subscribe(results => {
+    this.service.currentResults.subscribe((results) => {
       this.data = results;
       this.setData();
     });
@@ -37,8 +52,7 @@ export class SearchResultComponent {
     return typeof value;
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   openPopup(data: string[]) {
     this.isPopupOpen = true;
@@ -49,6 +63,18 @@ export class SearchResultComponent {
     this.isPopupOpen = false;
   }
 
+  get queries() {
+    return this.queryForm.get('queries') as FormArray;
+  }
+
+  addQueries() {
+    this.queries.push(this._FB.control(''));
+  }
+
+  removeQueries(index: number) {
+    (this.queryForm.get('queries') as FormArray).removeAt(index);
+  }
+
   /**
    * Set data based on the search result
    */
@@ -57,14 +83,15 @@ export class SearchResultComponent {
     if (this.data['resp'].length) {
       for (var i = 0; i < this.data['resp'].length; i++) {
         if (this.data['resp'][i]['stats']) {
-          this.stats.push(this.data['resp'][i]['stats'])
-          console.log(this.data['resp'][i]['stats'])
+          this.stats.push(this.data['resp'][i]['stats']);
+          console.log(this.data['resp'][i]['stats']);
         }
         if (this.data['resp'][i]['common judgement among all facts']) {
-          this.common_judgements.push(this.data['resp'][i]['common judgement among all facts'])
+          this.common_judgements.push(
+            this.data['resp'][i]['common judgement among all facts']
+          );
         }
       }
-
     }
   }
 
