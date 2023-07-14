@@ -7,7 +7,6 @@ import { HomeComponent } from './home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
-import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +14,6 @@ import { HeaderComponent } from './header/header.component';
     HomeComponent,
     DashboardComponent,
     SidebarComponent,
-    HeaderComponent
   ],
   imports: [
     BrowserModule,

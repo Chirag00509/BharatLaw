@@ -8,13 +8,13 @@
   background-color: blue;
   width: 40px;
   height: 40px;
-
+  position: relative;
 }
 
 span {
   position: absolute;
   color: white;
   font-weight: bold;
-  top: 23px;
-  right: 165px;
+  top: 8px;
+  right: 10px;
 }

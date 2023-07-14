@@ -1,67 +1,66 @@
 .background {
-    background-color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    padding: 0;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
 }
 
 h2 {
 
-    text-align: center;
-    padding-bottom: 30px;
+  text-align: center;
+  padding-bottom: 30px;
 }
 
 
 form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 15px;
 }
 
 
 label {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 input {
-    width: 400px;
-    height: 40px;
-    margin-bottom: 0px;
-    padding: 2px;
-    padding-left: 10px;
-    border: none;
-    border-radius: 3px;
-    background-color: #f2f2f2;
-    font-size: 16px;
-    color: #333333;
+  width: 400px;
+  height: 40px;
+  margin-bottom: 0px;
+  padding: 2px;
+  padding-left: 10px;
+  border: none;
+  border-radius: 3px;
+  background-color: #f2f2f2;
+  font-size: 16px;
+  color: #333333;
 }
 
 
 button[type="submit"] {
-    width: 100%;
-    padding: 10px;
-    background-color: #4caf50;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+  width: 100%;
+  padding: 10px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 button:hover {
-    background-color: #45a049;
+  background-color: #45a049;
 }
 
 
 button[type="submit"]:disabled {
-    background-color: #4caf50;
-    color: #fff;
-    cursor: not-allowed;
+  background-color: #4caf50;
+  color: #fff;
+  cursor: not-allowed;
 }
 
 .error {
-    border: 1px solid red;
+  border: 1px solid red;
 }
