@@ -428,6 +428,7 @@ export class SidebarComponent {
     this.citationsMetaData = [];
     this.respondentMetaData = [];
     this.petitionerMetaData = [];
+  }
 
   getUserDetails() {
     let token = localStorage.getItem('token');

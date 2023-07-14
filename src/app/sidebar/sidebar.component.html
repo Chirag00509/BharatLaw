@@ -17,17 +17,16 @@
     <span style="border: .5px solid gray; width: 90%; position: absolute; left: 10px;"></span>
     <div class="contant-deatls">
       <div class="rounded-circle">
-        <span style="position: absolute; left: 17px; bottom: 31px;">{{ firstName | uppercase }} {{ lastName | uppercase }}</span>
+        <span style="position: absolute; left: 17px; bottom: 31px;">CL</span>
       </div>
-      <h6 style="color: white; margin-left: 7px; margin-top: 8px;">{{ firstNameUser }} {{lastNameUser }}</h6>
-      <a (click)="logout()">
+      <h6 style="color: white; margin-left: 7px; margin-top: 8px;">Chirag Labha</h6>
+      <a href="">
         <i class="fa-solid fa-right-from-bracket"
           style="color: white; margin-left: 39px; font-size: 21px; margin-top: 8px;"></i>
       </a>
     </div>
   </div>
 </div>
-
 
 <section class="wrap">
   <div class="container">
@@ -223,20 +222,11 @@
           </form>
         </div>
       </div>
-
-<div class="bg">
-  <img src="../../assets/large image.png"><br>
-  <div>
-    <div class="search-container" style="position: relative;">
-      <input type="text" class="search-input" placeholder="What is your Query" name="search" id="search" />
-        <i class="fa fa-search search-icon" style="position: absolute; bottom: 14px; right: 14px;"></i>
-
     </div>
     <ng-container *ngIf="isResultsVisible">
       <app-search-result></app-search-result>
     </ng-container>
   </div>
-
 </section>
 
 <!-- Loader -->
@@ -247,20 +237,3 @@
     <div class="loading-dots--dot"></div>
   </div>
 </div>
-
-</div>
-
-<div class="popup-overlay" *ngIf="showPopup">
-  <div class="popup-content" style="padding: 30px;">
-    <h2 style="margin-bottom: 15px;">Research Name</h2>
-    <form [formGroup]="createResearchName" (ngSubmit)="research(createResearchName.value)">
-      <textarea name="" id="" cols="35" rows="7" placeholder="Type hear.." name="research"
-        formControlName="research"></textarea>
-      <div style="display: flex; align-items: center; flex-direction: column;">
-        <button class="btn btn-success"style="width: 200px; margin-top: 20px;">Continue</button>
-        <button class="close" (click)="closePopup()"style="margin-top: 20px;">Close</button>
-      </div>
-    </form>
-  </div>
-</div>
-
