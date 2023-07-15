@@ -22,12 +22,12 @@ export class DashboardComponent implements OnInit {
 
   createResearchName!: FormGroup;
 
-  user:any;
-  firstName:any;
-  lastName:any;
+  user: any;
+  firstName: any;
+  lastName: any;
   isDropdownOpen = false;
 
-  constructor( private userService: UserService, private router: Router, private formBuilder: FormBuilder, private researchService: ResearchService ) {}
+  constructor(private userService: UserService, private router: Router, private formBuilder: FormBuilder, private researchService: ResearchService) { }
 
   ngOnInit(): void {
     this.initializeForm();
@@ -74,8 +74,14 @@ export class DashboardComponent implements OnInit {
   }
 
   getData() {
-    this.researchService.getResearchDetails().subscribe((res) => {
-      this.cards = res;
+    let token = localStorage.getItem('token');
+    this.userService.getDetailsByToken(token).subscribe((res) => {
+          let id = res.id;
+          console.log(id);
+
+      this.researchService.getResearchDetails(id).subscribe((res) => {
+        this.cards = res;
+      });
     });
   }
 
@@ -98,7 +104,7 @@ export class DashboardComponent implements OnInit {
     })
   }
 
-  yourProfile(){
+  yourProfile() {
     this.router.navigateByUrl("/user/update-profile");
   }
 

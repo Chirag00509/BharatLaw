@@ -11,8 +11,6 @@ export class ResearchService {
 
   createResearch(data: any) : Observable<any> {
 
-    console.log(data);
-
     const headers = new HttpHeaders({
       'Content-Type': 'application/json'
     });
@@ -20,8 +18,8 @@ export class ResearchService {
     return this.http.post<any>("https://localhost:7204/api/ResearchBook", data, { headers : headers } );
   }
 
-  getResearchDetails() : Observable<any> {
-    return this.http.get<any>("https://localhost:7204/api/ResearchBook");
+  getResearchDetails(id: any) : Observable<any> {
+    return this.http.get<any>(`https://localhost:7204/api/ResearchBook/${id}`);
   }
 
 }

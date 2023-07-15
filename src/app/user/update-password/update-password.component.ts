@@ -6,7 +6,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -20,7 +20,8 @@ export class UpdatePasswordComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private formBuilder: FormBuilder,
-    private userservice: UserService
+    private userservice: UserService,
+    private router : Router
   ) {}
 
   ngOnInit(): void {
@@ -41,5 +42,6 @@ export class UpdatePasswordComponent implements OnInit {
     let token = this.route.snapshot.paramMap.get('token');
     this.userservice.getupdatePassword(password, token).subscribe();
     alert('Successfully Updated the password');
+    this.router.navigateByUrl('/user/signin');
   }
 }

@@ -115,11 +115,16 @@ export class SidebarComponent {
   }
 
   getData() {
-    this.researchService.getResearchDetails().subscribe((res) => {
-      this.researches = res;
+    let token = localStorage.getItem('token');
+    this.userService.getDetailsByToken(token).subscribe((res) => {
+          let id = res.id;
+          console.log(id);
+
+      this.researchService.getResearchDetails(id).subscribe((res) => {
+        this.researches = res;
+      });
     });
   }
-
 
   get queries() {
     return this.queryForm.get('queries') as FormArray;
