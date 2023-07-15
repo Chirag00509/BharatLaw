@@ -6,7 +6,7 @@
       <ul class="navbar-nav">
 
         <div class="rounded-circle">
-          <span>{{ firstName | uppercase }} {{ lastName | uppercase }}</span>
+          <span>{{ firstName | uppercase }}{{ lastName | uppercase }}</span>
         </div>
         <li class="nav-item dropdown" (click)="toggleDropdown()">
           <a class="nav-link dropdown-toggle" role="button" [class.show]="isDropdownOpen" aria-haspopup="true"
