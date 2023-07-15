@@ -106,9 +106,9 @@
                     Advanced
                     filters <span class="fa fa-angle-down"></span></h6>
                 </div>
-                <div class="btns" *ngIf="!advancedFilter">
+                <div class="btns" *ngIf="!advancedFilter" style="position: relative;">
                   <button [disabled]="!queryForm.valid" *ngIf="show"
-                    style="position: absolute; top: 335px; right: 385px; border: none; background: transparent;">
+                    style="position: absolute; bottom: 35px; right: 10px; border: none; background: transparent;">
                     <i class="fa fa-search search-icon"></i>
                   </button>
                 </div>

@@ -1469,7 +1469,6 @@ select.form-control {
 .law-card-header {
     background-color: #0A004D;
     padding: 15px 15px 10px;
-    margin-bottom: 15px;
     border-radius: 0px;
     position: relative;
     cursor: pointer;
@@ -1577,4 +1576,10 @@ select.form-control {
   0% { opacity: .4; transform: scale(1); }
   50% { opacity: 1; transform: scale(1.2); }
   100% { opacity: .4; transform: scale(1); }
+}
+
+.information {
+  background-color: whitesmoke;
+  font-size: 14.5px;
+  padding: 10px;
 }
