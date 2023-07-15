@@ -16,7 +16,7 @@
           <ul class="dropdown-menu" [class.show]="isDropdownOpen" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item" (click)="yourProfile()">Your Profile</a></li>
             <li><a class="dropdown-item" routerLink="/user/change-password">Change Password</a></li>
-            <li><a class="dropdown-item" (click)="logout()" >Logout</a></li>
+            <li><a class="dropdown-item" (click)="logout()">Logout</a></li>
           </ul>
         </li>
       </ul>
@@ -33,14 +33,16 @@
         <h5 class="card-title" style="padding-top: 8px; margin-left: 28px;">New Query</h5>
       </div>
     </div>
-    <div *ngFor="let card of cards" class="card">
+
+    <div *ngFor="let card of cards" class="card" (click)="redirect()">
       <i class="fa-solid fa-folder"
         style="padding-top: 20px; padding-left: 20px; color:goldenrod; size: 30px; font-size: 30px;"></i>
       <div class="card-body">
         <h5 class="card-title">{{ card.name }}</h5>
         <!-- <p class="card-date" style="color: gray; position: absolute; bottom: -5px; left: 7px; font-size: 13px;">{{ getCurrentDate() }}</p> -->
         <div style="display: flex; position: absolute; bottom: 0;">
-          <p class="card-date" style="color: gray; font-size: 13px; margin-bottom: 7px; margin-left: -7px;">{{ card.dateCreated | date }}</p>
+          <p class="card-date" style="color: gray; font-size: 13px; margin-bottom: 7px; margin-left: -7px;">{{
+            card.dateCreated | date }}</p>
           <a routerLink="/home">
             <img src="../../../assets//arrow-up-right.svg" alt="" style="padding-left: 85px; padding-bottom: 5px;">
           </a>
