@@ -57,6 +57,10 @@ export class DashboardComponent implements OnInit {
     this.showPopup = false;
   }
 
+  redirect() {
+    this.router.navigateByUrl('');
+  }
+
   research(data: any) {
     let token = localStorage.getItem('token');
     this.userService.getDetailsByToken(token).subscribe((res) => {

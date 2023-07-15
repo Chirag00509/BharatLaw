@@ -8,7 +8,10 @@
         <h5 class="card-title" style="padding-top: 8px; margin-left: 28px;">New Query</h5>
       </div>
     </div>
-    <div *ngFor="let card of cards" class="card">
+
+
+
+    <div *ngFor="let card of cards" class="card" (click)="redirect()">
       <i class="fa-solid fa-folder"
         style="padding-top: 20px; padding-left: 20px; color:goldenrod; size: 30px; font-size: 30px;"></i>
       <div class="card-body">
