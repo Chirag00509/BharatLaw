@@ -27,7 +27,12 @@ export class DashboardComponent implements OnInit {
   lastName: any;
   isDropdownOpen = false;
 
-  constructor(private userService: UserService, private router: Router, private formBuilder: FormBuilder, private researchService: ResearchService) { }
+  constructor(
+    private userService: UserService,
+    private router: Router,
+    private formBuilder: FormBuilder,
+    private researchService: ResearchService
+  ) {}
 
   ngOnInit(): void {
     this.initializeForm();
@@ -58,6 +63,10 @@ export class DashboardComponent implements OnInit {
     this.showPopup = false;
   }
 
+  redirect() {
+    this.router.navigateByUrl('/home');
+  }
+
   research(data: any) {
     let token = localStorage.getItem('token');
     this.userService.getDetailsByToken(token).subscribe((res) => {
@@ -76,8 +85,8 @@ export class DashboardComponent implements OnInit {
   getData() {
     let token = localStorage.getItem('token');
     this.userService.getDetailsByToken(token).subscribe((res) => {
-          let id = res.id;
-          console.log(id);
+      let id = res.id;
+      console.log(id);
 
       this.researchService.getResearchDetails(id).subscribe((res) => {
         this.cards = res;
@@ -86,26 +95,26 @@ export class DashboardComponent implements OnInit {
   }
 
   getUser() {
-    let token = localStorage.getItem("token");
+    let token = localStorage.getItem('token');
 
     this.userService.getDetailsByToken(token).subscribe((res) => {
       this.user = res.firstName;
       this.firstName = res.firstName.charAt(0);
       this.lastName = res.lastName.charAt(0);
-    })
+    });
   }
 
   logout() {
     let token = localStorage.getItem('token');
 
     this.userService.logout(token).subscribe((res) => {
-      this.router.navigateByUrl("/");
+      this.router.navigateByUrl('/');
       localStorage.clear();
-    })
+    });
   }
 
   yourProfile() {
-    this.router.navigateByUrl("/user/update-profile");
+    this.router.navigateByUrl('/user/update-profile');
   }
 
   toggleDropdown() {
