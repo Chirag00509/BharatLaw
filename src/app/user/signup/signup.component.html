@@ -55,7 +55,7 @@
         Organization is required
       </span>
 
-      <input type="text" placeholder="Password" name="password" id="password" formControlName="password"
+      <input type="password" placeholder="Password" name="password" id="password" formControlName="password"
         [ngClass]="{'error': getControl('password')?.errors && getControl('password')?.touched}">
 
       <span style="color: red;"
@@ -63,7 +63,7 @@
         Password is required.
       </span>
 
-      <input type="text" placeholder="Confirm Password" name="confirmPassword" id="confirmPassword"
+      <input type="password" placeholder="Confirm Password" name="confirmPassword" id="confirmPassword"
         formControlName="confirmPassword"
         [ngClass]="{'error': getControl('confirmPassword')?.errors && getControl('confirmPassword')?.touched}">
 
